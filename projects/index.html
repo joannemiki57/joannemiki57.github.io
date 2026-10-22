@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>projects | Joanne Yun</title>
+<meta name="description" content="Joanne Yun: M.S. student in Industrial &amp; Systems Engineering at UW–Madison working on machine learning for manufacturing and acoustic process monitoring.">
+<meta name="author" content="Junghyun (Joanne) Yun">
+<meta property="og:title" content="projects | Joanne Yun">
+<meta property="og:description" content="Joanne Yun: M.S. student in Industrial &amp; Systems Engineering at UW–Madison working on machine learning for manufacturing and acoustic process monitoring.">
+<meta property="og:image" content="https://joannemiki57.github.io/assets/img/prof_pic.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%23c5050c%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22>JY</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+<link rel="stylesheet" href="../assets/css/main.css">
+<script src="../assets/js/main.js"></script>
+</head>
+<body>
+<header class="navbar">
+<div class="container">
+<a class="navbar-brand" href="../"><span class="first">Joanne</span> Yun</a>
+<button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+<ul class="nav-links">
+<li><a href="../">about</a></li>
+<li><a href="../publications/">publications</a></li>
+<li><a href="../projects/" class="active">projects</a></li>
+<li><a href="../news/">news</a></li>
+<li><a href="../cv/">cv</a></li>
+<li><button class="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i></button></li>
+</ul>
+</div>
+</header>
+<main class="container">
+
+<div class="post-header">
+<h1 class="post-title">projects</h1>
+<p class="post-description">Research first, then things I built for fun, for class, or in a hackathon.</p>
+</div>
+<h2 class="section-title">research</h2>
+<div class="proj-list"><a class="hcard" href="lpbf-acoustics/">
+<div class="thumb" style="background-image:url('../assets/img/projects/lpbf_spectrogram.jpg')"></div>
+<div class="card-body">
+<h3 class="card-title">Listening to a Laser Powder Bed Fusion Print</h3>
+<p class="card-sub">UW–Madison FEAP Lab · Sep 2026 to present</p>
+<p class="card-text">Splitting hours of chamber audio into individual printed layers, as the first step toward predicting material properties of EUROFER97 steel from sound.</p>
+<div class="card-tags"><span class="tag">acoustics</span><span class="tag">signal processing</span><span class="tag">LPBF</span></div>
+</div></a>
+<a class="hcard" href="ded-acoustics/">
+<div class="thumb" style="background-image:url('../assets/img/projects/ded_spectrogram.jpg')"></div>
+<div class="card-body">
+<h3 class="card-title">Acoustic Process Monitoring in Directed Energy Deposition</h3>
+<p class="card-sub">Purdue LAMM · Summer 2026</p>
+<p class="card-text">Separating what the laser, the powder feed, and the motion system each sound like, and finding a 7–8.5 kHz transient that only appears when the laser switches on.</p>
+<div class="card-tags"><span class="tag">acoustics</span><span class="tag">DED</span><span class="tag">synchronization</span></div>
+</div></a>
+<a class="hcard" href="svm-calibration/">
+<div class="thumb" style="background-image:url('../assets/img/projects/calib_grid.jpg')"></div>
+<div class="card-body">
+<h3 class="card-title">Geometry-Based Surround-View Camera Calibration</h3>
+<p class="card-sub">Purdue LAMM · Summer 2026</p>
+<p class="card-text">A targetless way to refine camera roll from known vehicle dimensions and image boundaries, plus work on a C++/OpenCV surround-view simulator.</p>
+<div class="card-tags"><span class="tag">computer vision</span><span class="tag">calibration</span><span class="tag">OpenCV</span></div>
+</div></a>
+<a class="hcard" href="ehd-federated/">
+<div class="thumb" style="background-image:url('../assets/img/projects/ehd_fl.jpg')"></div>
+<div class="card-body">
+<h3 class="card-title">Federated Learning for EHD Inkjet Printing</h3>
+<p class="card-sub">UW–Madison FEAP Lab · 2025–2026 · Manufacturing Letters</p>
+<p class="card-text">Predicting printed line width across eight printing systems without pooling their data. A model that scores R² = 0.983 at home can go negative on someone else's printer.</p>
+<div class="card-tags"><span class="tag">federated learning</span><span class="tag">XGBoost</span><span class="tag">additive manufacturing</span></div>
+</div></a>
+<a class="hcard" href="perforation-defects/">
+<div class="thumb" style="background-image:url('../assets/img/projects/defect_poster.jpg')"></div>
+<div class="card-body">
+<h3 class="card-title">Perforation Defect Detection for Industrial Inspection</h3>
+<p class="card-sub">UW–Madison FEAP Lab · 2025–2026 · IEOM 2nd Place · QCRE 3rd of 33</p>
+<p class="card-text">Labeling 900 of 25,000 production images, generating pseudo-labels for the rest, and training a detector that finds 93.4% of defect regions.</p>
+<div class="card-tags"><span class="tag">object detection</span><span class="tag">pseudo-labeling</span><span class="tag">Faster R-CNN</span></div>
+</div></a></div>
+<h2 class="section-title">builds &amp; side projects</h2>
+<div class="grid"><a class="vcard" href="https://github.com/joannemiki57/IncidentCopilot">
+<div class="icon-thumb"><i class="fa-solid fa-life-ring"></i></div>
+<div class="card-body">
+<h3 class="card-title">Incident Copilot <i class="fa-brands fa-github" style="font-size:0.9rem"></i></h3>
+<p class="card-sub">1st Place · UW–Madison LikeLion Hackathon 2026</p>
+<p class="card-text">An incident-response console that walks raw logs through triage, root-cause hypotheses, evidence, and an action plan with human-in-the-loop gates. Built in a day by a team of three.</p>
+<div class="card-tags"><span class="tag">Next.js</span><span class="tag">FastAPI</span><span class="tag">SSE</span></div>
+</div></a><a class="vcard" href="https://github.com/joannemiki57/Polaris">
+<div class="icon-thumb"><i class="fa-solid fa-diagram-project"></i></div>
+<div class="card-body">
+<h3 class="card-title">Polaris <i class="fa-brands fa-github" style="font-size:0.9rem"></i></h3>
+<p class="card-sub">Finalist · UW–Madison Cursor Hackathon 2026</p>
+<p class="card-text">Type a research question, get a knowledge graph grounded in real papers from OpenAlex, then expand nodes and chat with the papers.</p>
+<div class="card-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Gemini</span></div>
+</div></a><div class="vcard">
+<div class="icon-thumb"><i class="fa-solid fa-tooth"></i></div>
+<div class="card-body">
+<h3 class="card-title">OraQ</h3>
+<p class="card-sub">LikeLion Data Science Team · Spring 2026</p>
+<p class="card-text">Photograph the inside of your mouth and get an oral cancer risk estimate you can track over time. I owned data collection, preprocessing, and the whole backend.</p>
+<div class="card-tags"><span class="tag">backend</span><span class="tag">CNN</span><span class="tag">mobile</span></div>
+</div></div><div class="vcard">
+<div class="icon-thumb"><i class="fa-solid fa-microchip"></i></div>
+<div class="card-body">
+<h3 class="card-title">PCB Defect Detector</h3>
+<p class="card-sub">4th Prize · Plexus Challenge, UW–Madison Makerthon 2025</p>
+<p class="card-text">A Raspberry Pi board-inspection prototype. My idea: instead of collecting rare defect images, learn what each component looks like and flag parts that don't match.</p>
+<div class="card-tags"><span class="tag">Raspberry Pi</span><span class="tag">computer vision</span></div>
+</div></div><div class="vcard">
+<div class="icon-thumb"><i class="fa-solid fa-solar-panel"></i></div>
+<div class="card-body">
+<h3 class="card-title">Solar Panel Anomaly Detection</h3>
+<p class="card-sub">Ajou University · with Korea Midland Power &amp; Kernelog</p>
+<p class="card-text">API-based telemetry acquisition for a solar-panel digital twin, and an anomaly-detection model on top of it.</p>
+<div class="card-tags"><span class="tag">digital twin</span><span class="tag">anomaly detection</span></div>
+</div></div><div class="vcard">
+<div class="icon-thumb"><i class="fa-solid fa-droplet"></i></div>
+<div class="card-body">
+<h3 class="card-title">Microfluidic Sweat Patch</h3>
+<p class="card-sub">2nd Prize · Witeck project 2024 · team lead</p>
+<p class="card-text">A PDMS sweat-extraction patch with colorimetric pH sensing, plus an image-based algorithm that turns sensor color into a pH value.</p>
+<div class="card-tags"><span class="tag">microfluidics</span><span class="tag">image analysis</span></div>
+</div></div><div class="vcard">
+<div class="icon-thumb"><i class="fa-solid fa-plane"></i></div>
+<div class="card-body">
+<h3 class="card-title">Virtual Aircraft Assembly</h3>
+<p class="card-sub">Ajou University · 2025</p>
+<p class="card-text">A Unity environment for practicing jet-engine assembly and disassembly in 3D.</p>
+<div class="card-tags"><span class="tag">Unity</span><span class="tag">C#</span></div>
+</div></div><div class="vcard">
+<div class="icon-thumb"><i class="fa-solid fa-map-location-dot"></i></div>
+<div class="card-body">
+<h3 class="card-title">Bicycle Lift Siting</h3>
+<p class="card-sub">Korean Society of Systems Engineering · 2025</p>
+<p class="card-text">Where should a city put bicycle lifts on steep roads? An optimization using QGIS and public spatial data.</p>
+<div class="card-tags"><span class="tag">QGIS</span><span class="tag">optimization</span></div>
+</div></div><a class="vcard" href="https://github.com/joannemiki57/Trips">
+<div class="icon-thumb"><i class="fa-solid fa-images"></i></div>
+<div class="card-body">
+<h3 class="card-title">Trips <i class="fa-brands fa-github" style="font-size:0.9rem"></i></h3>
+<p class="card-sub">Personal project · iOS</p>
+<p class="card-text">A SwiftUI app that turns a trip's camera roll into a curated album once the trip is over.</p>
+<div class="card-tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span></div>
+</div></a></div>
+
+</main>
+<footer>© Copyright 2026 Junghyun (Joanne) Yun. Layout inspired by the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Last updated: October 19, 2026.</footer>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acoustic Process Monitoring in Directed Energy Deposition | Joanne Yun</title>
+<meta name="description" content="Separating what the laser, the powder feed, and the motion system each sound like, and finding a 7–8.5 kHz transient that only appears when the laser switches on.">
+<meta name="author" content="Junghyun (Joanne) Yun">
+<meta property="og:title" content="Acoustic Process Monitoring in Directed Energy Deposition | Joanne Yun">
+<meta property="og:description" content="Separating what the laser, the powder feed, and the motion system each sound like, and finding a 7–8.5 kHz transient that only appears when the laser switches on.">
+<meta property="og:image" content="https://joannemiki57.github.io/assets/img/prof_pic.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%23c5050c%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22>JY</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<script src="../../assets/js/main.js"></script>
+</head>
+<body>
+<header class="navbar">
+<div class="container">
+<a class="navbar-brand" href="../../"><span class="first">Joanne</span> Yun</a>
+<button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+<ul class="nav-links">
+<li><a href="../../">about</a></li>
+<li><a href="../../publications/">publications</a></li>
+<li><a href="../../projects/" class="active">projects</a></li>
+<li><a href="../../news/">news</a></li>
+<li><a href="../../cv/">cv</a></li>
+<li><button class="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i></button></li>
+</ul>
+</div>
+</header>
+<main class="container">
+
+<div class="post-header">
+<h1 class="post-title">Acoustic Process Monitoring in Directed Energy Deposition</h1>
+<p class="post-description">Purdue LAMM · Summer 2026</p>
+</div>
+<p class="project-meta">Purdue University, Laboratory for Advanced Multiscale Manufacturing · Prof. Martin Jun · Research intern</p>
+<div class="content">
+<p>A directed energy deposition (DED) machine is loud, and most of that noise has nothing to do with the melt pool. To find a sound that actually belongs to the process, you need to know which subsystem is making which sound.</p>
+
+<div class="figure"><img src="../../assets/img/projects/ded_spectrogram.jpg" alt="Spectrogram of a DED run against program time"><figcaption>Spectrogram of a DED run (0–8 kHz) against machine program time.</figcaption></div>
+
+<h3>What I did</h3>
+<ul>
+<li>Analyzed a six-run subsystem-isolation study to separate laser, powder-feed, and motion contributions in the audio.</li>
+<li>Aligned audio, video, and machine logs using oxygen readings, with a <b>0.17 s</b> alignment residual in the analyzed recordings.</li>
+<li>Mapped G-code operations to machine-log timestamps and segmented the audio into contour, infill, traverse, and layer transition, so laser-on and laser-off runs of the same operation could be compared directly.</li>
+<li>Found that apparent broadband "laser events" also showed up in the laser-off controls. Averaging over 45 laser-on edges revealed a <b>7–8.5 kHz transient</b> that is absent from the matching control, a candidate process signature for further study.</li>
+</ul>
+
+<div class="figure"><img src="../../assets/img/projects/ded_timefreq.jpg" alt="Waveform and spectrogram of a synchronized run"><figcaption>Waveform and spectrogram of one synchronized run.</figcaption></div>
+</div>
+<a class="back-link" href="../">← all projects</a>
+
+</main>
+<footer>© Copyright 2026 Junghyun (Joanne) Yun. Layout inspired by the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Last updated: October 19, 2026.</footer>
+</body>
+</html>

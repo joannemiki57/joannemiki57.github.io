@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Listening to a Laser Powder Bed Fusion Print | Joanne Yun</title>
+<meta name="description" content="Splitting hours of chamber audio into individual printed layers, as the first step toward predicting material properties of EUROFER97 steel from sound.">
+<meta name="author" content="Junghyun (Joanne) Yun">
+<meta property="og:title" content="Listening to a Laser Powder Bed Fusion Print | Joanne Yun">
+<meta property="og:description" content="Splitting hours of chamber audio into individual printed layers, as the first step toward predicting material properties of EUROFER97 steel from sound.">
+<meta property="og:image" content="https://joannemiki57.github.io/assets/img/prof_pic.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%23c5050c%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22>JY</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<script src="../../assets/js/main.js"></script>
+</head>
+<body>
+<header class="navbar">
+<div class="container">
+<a class="navbar-brand" href="../../"><span class="first">Joanne</span> Yun</a>
+<button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+<ul class="nav-links">
+<li><a href="../../">about</a></li>
+<li><a href="../../publications/">publications</a></li>
+<li><a href="../../projects/" class="active">projects</a></li>
+<li><a href="../../news/">news</a></li>
+<li><a href="../../cv/">cv</a></li>
+<li><button class="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i></button></li>
+</ul>
+</div>
+</header>
+<main class="container">
+
+<div class="post-header">
+<h1 class="post-title">Listening to a Laser Powder Bed Fusion Print</h1>
+<p class="post-description">UW–Madison FEAP Lab · Sep 2026 to present</p>
+</div>
+<p class="project-meta">UW–Madison, Flexible Electronics &amp; Additive Printing Lab · Advisor: Prof. Hantang Qin · Team lead, acoustic analysis</p>
+<div class="content">
+<p>Laser powder bed fusion (LPBF) builds a metal part one thin layer at a time: a recoater blade spreads powder, the laser melts the cross-section, and the cycle repeats. A microphone in the build chamber hears all of it. The question behind this project is whether that sound can tell us something about the material being made. Before any of that, the audio has to be cut into layers, and on a multi-hour recording that has to be automatic.</p>
+
+<div class="figure"><img src="../../assets/img/projects/lpbf_spectrogram.jpg" alt="Spectrogram of LPBF chamber audio for one layer"><figcaption>Chamber microphone spectrogram for a single layer, after cleaning.</figcaption></div>
+
+<h3>What I built</h3>
+<ul>
+<li>A Python pipeline that isolates printing layers from LPBF chamber audio, supporting a funded project on in-situ material-property prediction for EUROFER97 steel.</li>
+<li>Acoustic equalization, harmonic–percussive separation, and log-mel template matching to find recoater events, then layer boundaries from the energy change when the laser restarts.</li>
+<li>A 5.2-hour recording segmented into <b>209 layer segments</b> and its shorter companion channel into <b>135</b>, exported as WAV clips with an Excel timing index and spot-checked by hand.</li>
+<li>A video-side check: the chamber camera sees the laser, so brightness inside the build-plate region gives an independent laser-on/off signal.</li>
+</ul>
+
+<div class="figure"><img src="../../assets/img/projects/lpbf_template.jpg" alt="Equalized spectrogram of the recoater template"><figcaption>The recoater pass has a clear acoustic signature, which becomes a template for matching.</figcaption></div>
+
+<div class="fig-row">
+<div class="figure"><img src="../../assets/img/projects/lpbf_roi.jpg" alt="Camera frame with detected scan positions"><figcaption>Camera frame with the build-plate region and detected part positions.</figcaption></div>
+<div class="figure"><img src="../../assets/img/projects/lpbf_layermap.jpg" alt="Numbered part map for layer 58"><figcaption>Part-by-part scan order mapped for one layer.</figcaption></div>
+</div>
+
+<div class="figure"><img src="../../assets/img/projects/lpbf_recoat.jpg" alt="Sequence of video frames during recoating"><figcaption>Video frames across a recoat, used to line the audio up with what the machine is doing.</figcaption></div>
+</div>
+<a class="back-link" href="../">← all projects</a>
+
+</main>
+<footer>© Copyright 2026 Junghyun (Joanne) Yun. Layout inspired by the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Last updated: October 19, 2026.</footer>
+</body>
+</html>

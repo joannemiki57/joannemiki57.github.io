@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perforation Defect Detection for Industrial Inspection | Joanne Yun</title>
+<meta name="description" content="Labeling 900 of 25,000 production images, generating pseudo-labels for the rest, and training a detector that finds 93.4% of defect regions.">
+<meta name="author" content="Junghyun (Joanne) Yun">
+<meta property="og:title" content="Perforation Defect Detection for Industrial Inspection | Joanne Yun">
+<meta property="og:description" content="Labeling 900 of 25,000 production images, generating pseudo-labels for the rest, and training a detector that finds 93.4% of defect regions.">
+<meta property="og:image" content="https://joannemiki57.github.io/assets/img/prof_pic.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%23c5050c%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22>JY</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<script src="../../assets/js/main.js"></script>
+</head>
+<body>
+<header class="navbar">
+<div class="container">
+<a class="navbar-brand" href="../../"><span class="first">Joanne</span> Yun</a>
+<button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+<ul class="nav-links">
+<li><a href="../../">about</a></li>
+<li><a href="../../publications/">publications</a></li>
+<li><a href="../../projects/" class="active">projects</a></li>
+<li><a href="../../news/">news</a></li>
+<li><a href="../../cv/">cv</a></li>
+<li><button class="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i></button></li>
+</ul>
+</div>
+</header>
+<main class="container">
+
+<div class="post-header">
+<h1 class="post-title">Perforation Defect Detection for Industrial Inspection</h1>
+<p class="post-description">UW–Madison FEAP Lab · 2025–2026 · IEOM 2nd Place · QCRE 3rd of 33</p>
+</div>
+<p class="project-meta">UW–Madison, Flexible Electronics &amp; Additive Printing Lab · co-led with postdoctoral researcher Hasnaa Ouidadi · Prof. Hantang Qin</p>
+<div class="content">
+<p>An industry partner had about 25,000 unlabeled images of perforated material and needed defects found and classified automatically. Hand-labeling all of them was not an option, so most of the work went into deciding <i>which</i> images to label and how to label the rest automatically.</p>
+
+<div class="figure"><img src="../../assets/img/projects/defect_poster.jpg" alt="IEOM 2026 poster"><figcaption>Our poster at IEOM 2026 in Milwaukee, which won 2nd Place in the Senior Capstone Design Competition. <a href="../../assets/pdf/IEOM2026_poster_Yun.pdf">PDF</a></figcaption></div>
+
+<h3>What I did</h3>
+<ul>
+<li>Co-led the defect-inspection research and designed an annotation strategy of roughly <b>900 images</b> (informative plus random samples) out of 25,000.</li>
+<li>Co-wrote the sampling and pseudo-labeling methods for the manuscript, and evaluated the adaptive-thresholding pseudo-labeler with component ablations and a six-parameter sensitivity analysis.</li>
+<li>Under a center-based localization metric, the pipeline located <b>93.4% of 852 regions</b> across 213 images with 18 false boxes.</li>
+<li>Reconstructed the Faster R-CNN training pipeline, reaching <b>85.0% AP / 97.6% AP50</b> on 178 validation images.</li>
+</ul>
+
+<div class="figure"><img src="../../assets/img/projects/defect_flow.jpg" alt="Adaptive thresholding pseudo-label flow"><figcaption>The pseudo-labeling flow: dual-stage detector, geometric filter, dot association, NMS, auto pseudo-label.</figcaption></div>
+
+<div class="figure" style="max-width:520px;margin-left:auto;margin-right:auto"><img src="../../assets/img/projects/defect_f1.jpg" alt="Active learning accuracy gain chart"><figcaption>A second round of training with active-learning curation raised classifier micro-F1 (from the poster).</figcaption></div>
+
+<div class="callout">Recognition: <b>3rd of 33 teams</b>, IISE QCRE Data Challenge 2026 · <b>2nd Place</b>, IEOM Senior Capstone Design Competition 2026</div>
+</div>
+<a class="back-link" href="../">← all projects</a>
+
+</main>
+<footer>© Copyright 2026 Junghyun (Joanne) Yun. Layout inspired by the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Last updated: October 19, 2026.</footer>
+</body>
+</html>

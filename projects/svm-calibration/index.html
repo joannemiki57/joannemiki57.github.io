@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geometry-Based Surround-View Camera Calibration | Joanne Yun</title>
+<meta name="description" content="A targetless way to refine camera roll from known vehicle dimensions and image boundaries, plus work on a C++/OpenCV surround-view simulator.">
+<meta name="author" content="Junghyun (Joanne) Yun">
+<meta property="og:title" content="Geometry-Based Surround-View Camera Calibration | Joanne Yun">
+<meta property="og:description" content="A targetless way to refine camera roll from known vehicle dimensions and image boundaries, plus work on a C++/OpenCV surround-view simulator.">
+<meta property="og:image" content="https://joannemiki57.github.io/assets/img/prof_pic.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%23c5050c%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22>JY</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<script src="../../assets/js/main.js"></script>
+</head>
+<body>
+<header class="navbar">
+<div class="container">
+<a class="navbar-brand" href="../../"><span class="first">Joanne</span> Yun</a>
+<button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+<ul class="nav-links">
+<li><a href="../../">about</a></li>
+<li><a href="../../publications/">publications</a></li>
+<li><a href="../../projects/" class="active">projects</a></li>
+<li><a href="../../news/">news</a></li>
+<li><a href="../../cv/">cv</a></li>
+<li><button class="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i></button></li>
+</ul>
+</div>
+</header>
+<main class="container">
+
+<div class="post-header">
+<h1 class="post-title">Geometry-Based Surround-View Camera Calibration</h1>
+<p class="post-description">Purdue LAMM · Summer 2026</p>
+</div>
+<p class="project-meta">Purdue University, Laboratory for Advanced Multiscale Manufacturing · Prof. Martin Jun · Research intern</p>
+<div class="content">
+<p>Surround-view systems stitch four fisheye cameras into a single bird's-eye view. If one camera is slightly rotated, the seams tear. Factory calibration uses printed targets; the goal here was to tighten calibration without them, so the system can keep itself calibrated on the road.</p>
+
+<div class="figure"><img src="../../assets/img/projects/calib_grid.jpg" alt="Four fisheye views with projected ground grids"><figcaption>Projected ground grids on all four fisheye cameras, used to check the extrinsics.</figcaption></div>
+
+<h3>What I did</h3>
+<ul>
+<li>Proposed and implemented a targetless calibration method that uses known vehicle dimensions and image boundaries to refine camera roll, narrowing the image-search region for online road calibration.</li>
+<li>Implemented gradient-based boundary extraction and robust optimization in Python/OpenCV, compared calibration methods, and investigated systematic bias and poorly conditioned views.</li>
+<li>Contributed to a C++/OpenCV surround-view simulator with interactive camera-pose switching, and ported a road-scene selection pipeline built on feature tracking and geometric outlier rejection.</li>
+</ul>
+
+<div class="fig-row">
+<div class="figure"><img src="../../assets/img/projects/calib_ground.jpg" alt="Usable ground regions per camera"><figcaption>Which parts of each view are usable road surface.</figcaption></div>
+<div class="figure"><img src="../../assets/img/projects/calib_sim.jpg" alt="Simulated fisheye front view"><figcaption>A simulated fisheye front view from the surround-view simulator.</figcaption></div>
+</div>
+</div>
+<a class="back-link" href="../">← all projects</a>
+
+</main>
+<footer>© Copyright 2026 Junghyun (Joanne) Yun. Layout inspired by the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Last updated: October 19, 2026.</footer>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Federated Learning for EHD Inkjet Printing | Joanne Yun</title>
+<meta name="description" content="Predicting printed line width across eight printing systems without pooling their data. A model that scores R² = 0.983 at home can go negative on someone else&#x27;s printer.">
+<meta name="author" content="Junghyun (Joanne) Yun">
+<meta property="og:title" content="Federated Learning for EHD Inkjet Printing | Joanne Yun">
+<meta property="og:description" content="Predicting printed line width across eight printing systems without pooling their data. A model that scores R² = 0.983 at home can go negative on someone else&#x27;s printer.">
+<meta property="og:image" content="https://joannemiki57.github.io/assets/img/prof_pic.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%23c5050c%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22>JY</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<script src="../../assets/js/main.js"></script>
+</head>
+<body>
+<header class="navbar">
+<div class="container">
+<a class="navbar-brand" href="../../"><span class="first">Joanne</span> Yun</a>
+<button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+<ul class="nav-links">
+<li><a href="../../">about</a></li>
+<li><a href="../../publications/">publications</a></li>
+<li><a href="../../projects/" class="active">projects</a></li>
+<li><a href="../../news/">news</a></li>
+<li><a href="../../cv/">cv</a></li>
+<li><button class="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i></button></li>
+</ul>
+</div>
+</header>
+<main class="container">
+
+<div class="post-header">
+<h1 class="post-title">Federated Learning for EHD Inkjet Printing</h1>
+<p class="post-description">UW–Madison FEAP Lab · 2025–2026 · Manufacturing Letters</p>
+</div>
+<p class="project-meta">UW–Madison, Flexible Electronics &amp; Additive Printing Lab · with Pengyu Zhang and Prof. Hantang Qin · <a href="https://doi.org/10.1016/j.mfglet.2026.08.036">Paper (DOI)</a></p>
+<div class="content">
+<p>Electrohydrodynamic (EHD) inkjet printing uses an electric field to pull very fine lines of ink out of a nozzle. How wide the line comes out depends on voltage, frequency, duty ratio, standoff distance, and on the particular machine and room. Each lab has its own data and usually can't share it. Federated learning lets every lab train locally and share only model updates.</p>
+
+<div class="fig-row">
+<div class="figure"><img src="../../assets/img/projects/ehd_setup.jpg" alt="EHD printing setup schematic"><figcaption>EHD printing setup and how frequency changes line width.</figcaption></div>
+<div class="figure"><img src="../../assets/img/projects/ehd_fl.jpg" alt="Federated learning server and clients diagram"><figcaption>Each printing system is a client; only model parameters go to the server.</figcaption></div>
+</div>
+
+<h3>My part</h3>
+<ul>
+<li>Built individual XGBoost regressors and data-processing pipelines for <b>8 printing-system clients</b> in a study reporting 1,185 experimental runs. These are the baseline the federated framework is compared against.</li>
+<li>Showed that a strong within-client model (<b>R² = 0.983</b>) gave <b>negative R²</b> on four other clients when transferred. That cross-system failure is the motivation for the federated comparison.</li>
+</ul>
+
+<div class="figure"><img src="../../assets/img/projects/ehd_scatter.jpg" alt="Actual vs predicted line width for individual, centralized, and federated learning"><figcaption>Actual vs. predicted line width for individual, centralized, and federated learning. Figure from Zhang, Yun &amp; Qin, <i>Manufacturing Letters</i> 49 (2026), CC BY-NC-ND 4.0.</figcaption></div>
+</div>
+<a class="back-link" href="../">← all projects</a>
+
+</main>
+<footer>© Copyright 2026 Junghyun (Joanne) Yun. Layout inspired by the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Last updated: October 19, 2026.</footer>
+</body>
+</html>
