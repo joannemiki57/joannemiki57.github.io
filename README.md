@@ -20,10 +20,6 @@ python3 -m http.server 4321 --directory .
 
 Then open http://localhost:4321.
 
-## Publish on GitHub Pages
+## Deploy
 
-1. Create a public repo named exactly `joannemiki57.github.io`.
-2. Push this folder to it.
-3. Settings → Pages → Deploy from branch → `main` / root.
-
-The site will be at https://joannemiki57.github.io.
+Served by GitHub Pages from `main` (root).
