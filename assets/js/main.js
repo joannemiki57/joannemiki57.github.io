@@ -1,4 +1,4 @@
-// Theme toggle, mobile nav, and abstract/bibtex toggles.
+// Theme toggle, mobile nav, abstract/bibtex toggles, and the image viewer.
 (function () {
   var root = document.documentElement;
 
@@ -46,5 +46,40 @@
         target.classList.toggle("open");
       });
     });
+
+    // Click a figure, poster, or photo to see it full size.
+    var images = document.querySelectorAll(".figure img, .pub-thumb, .gallery img");
+    if (images.length) {
+      var box = document.createElement("div");
+      box.className = "lightbox";
+      box.setAttribute("role", "dialog");
+      box.setAttribute("aria-modal", "true");
+      box.innerHTML = '<button class="lb-close" aria-label="Close">&times;</button><img alt=""><div class="lb-caption"></div>';
+      document.body.appendChild(box);
+      var boxImg = box.querySelector("img");
+      var boxCap = box.querySelector(".lb-caption");
+      var close = function () {
+        box.classList.remove("open");
+        document.body.style.overflow = "";
+      };
+      box.addEventListener("click", function (e) {
+        if (e.target.tagName !== "A") close();
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") close();
+      });
+      images.forEach(function (img) {
+        img.classList.add("zoomable");
+        img.addEventListener("click", function () {
+          var fig = img.closest("figure, .figure");
+          var cap = fig && fig.querySelector("figcaption");
+          boxImg.src = img.currentSrc || img.src;
+          boxImg.alt = img.alt;
+          boxCap.innerHTML = cap ? cap.innerHTML : img.alt;
+          box.classList.add("open");
+          document.body.style.overflow = "hidden";
+        });
+      });
+    }
   });
 })();

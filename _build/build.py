@@ -22,11 +22,11 @@ SITE = {
     "github": "https://github.com/joannemiki57",
     "linkedin": "https://www.linkedin.com/in/joannejyun/",
     "cv_pdf": "assets/pdf/Joanne_Yun_CV.pdf",
-    "updated": "October 26, 2026",
+    "updated": "October 27, 2026",
 }
 
 ABOUT_HTML = """
-<p>I'm a master's student in <a href="https://www.engr.wisc.edu/department/industrial-systems-engineering/">Industrial &amp; Systems Engineering</a> at the <a href="https://www.wisc.edu/">University of Wisconsin–Madison</a>, where I'm a research assistant in the <a href="https://feap.wiscweb.wisc.edu/">Flexible Electronics &amp; Additive Printing (FEAP) Lab</a> advised by <a href="https://directory.engr.wisc.edu/ie/faculty/qin_hantang">Prof. Hantang Qin</a>. This past summer I was a research intern in Prof. Martin Jun's Laboratory for Advanced Multiscale Manufacturing (LAMM) at Purdue University.</p>
+<p>I'm a master's student in <a href="https://engineering.wisc.edu/department/industrial-systems-engineering/">Industrial &amp; Systems Engineering</a> at the <a href="https://www.wisc.edu/">University of Wisconsin–Madison</a>, where I'm a research assistant in the <a href="https://feap.wiscweb.wisc.edu/">Flexible Electronics &amp; Additive Printing (FEAP) Lab</a> advised by <a href="https://directory.engr.wisc.edu/ie/faculty/qin_hantang">Prof. Hantang Qin</a> and <a href="https://directory.engr.wisc.edu/ie/faculty/liu_kaibo">Prof. Kaibo Liu</a>. This past summer I was a research intern in Prof. Martin Jun's Laboratory for Advanced Multiscale Manufacturing (LAMM) at Purdue University.</p>
 
 <p>I did my B.S. in Industrial Engineering at <a href="https://www.ajou.ac.kr/en/index.do">Ajou University</a> in Suwon, South Korea, where I finished first in my class of 139, and spent my final undergraduate year at UW–Madison as a visiting student. At Ajou I worked in Prof. Jooyeon Lee's New Industrial Convergence R&amp;D Lab on solar-panel telemetry and a microfluidic sweat sensor.</p>
 
@@ -311,46 +311,77 @@ MADISON = [
     ("assets/img/madison/game-day.jpg", "Game day"),
 ]
 
+# Short version of the skills list, shown as tags on the about page.
+SKILLS = [
+    ("Languages", ["Python", "C++", "R", "MATLAB", "C#"]),
+    ("ML &amp; vision", ["PyTorch", "TensorFlow", "Detectron2", "OpenCV", "scikit-learn", "XGBoost", "Faster R-CNN", "YOLO"]),
+    ("Signal processing", ["FFT", "STFT / spectrograms", "acoustic equalization", "template matching"]),
+    ("Tools", ["pandas", "Git", "CMake", "FastAPI", "QGIS", "Unity"]),
+]
+
 CV_SECTIONS = [
     ("Education", [
-        ("University of Wisconsin–Madison", "Sep 2026 – May 2027 (expected)", "M.S., Industrial &amp; Systems Engineering", []),
-        ("University of Wisconsin–Madison", "Sep 2025 – May 2026", "Visiting International Student Program, Industrial &amp; Systems Engineering", []),
-        ("Ajou University, Suwon, South Korea", "Mar 2023 – Aug 2026", "B.S., Industrial Engineering · Class rank 1/139 · GPA 4.26/4.5 · Dean's List", []),
+        ("University of Wisconsin–Madison", "Sep 2025 – present", "M.S., Industrial &amp; Systems Engineering · Advisors: Prof. Hantang Qin and Prof. Kaibo Liu · GPA 3.9/4.0", []),
+        ("Ajou University, Suwon, South Korea", "Mar 2023 – Aug 2026", "B.S., Industrial Engineering · Advisor: Prof. Jooyeon Lee · GPA 4.26/4.5 · Class rank 1/139", []),
+    ]),
+    ("Publications", [
+        ("Federated Learning-Based Regression Framework to Predict Printed Line Width in Electrohydrodynamic Inkjet Printing", "2026",
+         "P. Zhang, <b>J. Yun</b>, and H. Qin · <i>Manufacturing Letters</i> 49, NAMRC 54 · <a href=\"https://doi.org/10.1016/j.mfglet.2026.08.036\">DOI</a>", []),
+        ("End-to-End Computer Vision Pipeline for Perforation Defect Detection and Classification in Industrial Imaging", "Jun 2026",
+         "<b>J. Yun</b>, H. Ouidadi, K. Alharbi, P. Zhang, and H. Qin · IEOM Society International", []),
+        ("Deep Learning-Based Perforation Defect Detection and Classification for Automated Industrial Inspection: An Industry Case Study", "In preparation",
+         "H. Ouidadi, K. Alharbi, P. Zhang, <b>J. Yun</b>, and H. Qin", []),
     ]),
     ("Research Experience", [
-        ("FEAP Lab, UW–Madison", "Sep 2025 – present", "Research Assistant (from Sep 2026), Undergraduate Researcher (Sep 2025 – May 2026) · Prof. Hantang Qin",
-         ["Acoustic monitoring for laser powder bed fusion", "Cross-system line-width prediction in EHD inkjet printing", "Industrial surface-defect detection"]),
+        ("FEAP Lab, UW–Madison", "Sep 2026 – present", "Team Lead, Multimodal Process Monitoring for Metal AM",
+         ["Lead the acoustic team on a DOE FIRE project: audio and video monitoring of LPBF builds to predict per-sample ductility and yield strength",
+          "Segmented 209 layers from 5 hours of build audio with acoustic equalization and NCC template matching",
+          "Video laser-off detector that recovers 95 laser-off intervals from about 620k frames",
+          "Homography-based part map that labels the 353 build-plate samples in chamber-camera frames"]),
         ("Laboratory for Advanced Multiscale Manufacturing, Purdue University", "Jun – Aug 2026", "Research Intern · Prof. Martin Jun",
-         ["Acoustic process monitoring in directed energy deposition", "Geometry-based surround-view camera calibration"]),
+         ["Acoustic monitoring for directed energy deposition: synced audio, video, and machine logs (0.17 s residual) and found a laser-linked 7–8.5 kHz burst over 45 laser-on edges",
+          "Targetless surround-view camera calibration with Miratek and Hyundai Translead: median roll error of 1.21–1.68° across 232 camera views"]),
+        ("FEAP Lab, UW–Madison", "Sep 2025 – May 2026", "Research Assistant · Prof. Hantang Qin",
+         ["Federated learning for EHD inkjet printing: per-client XGBoost baselines for 8 printing systems (1,185 runs)",
+          "Industrial surface defect detection: pseudo-labeler with 93.4% region localization and a Faster R-CNN detector at AP50 96.8%"]),
         ("New Industrial Convergence R&amp;D Lab, Ajou University", "Mar 2023 – Aug 2025", "Undergraduate Research Intern · Prof. Jooyeon Lee",
-         ["Solar-panel digital-twin telemetry and anomaly detection", "Microfluidic sweat-sensing patch"]),
+         ["Anomaly detection on solar-panel power-electronics telemetry with Korea Midland Power (KOMIPO) and Kernelog",
+          "API-based data acquisition for solar-panel digital twins",
+          "Led a microfluidic sweat-extraction patch with image-based pH sensing"]),
     ]),
     ("Teaching", [
-        ("Reader/Grader, ISyE 320: Simulation and Probabilistic Modeling", "Sep 2026 – present", "UW–Madison · Prof. Qiaomin Xie · sole grader for about 80 students", []),
-        ("Teaching Support, KIAT Data Analytics Program", "Jun – Aug 2026", "Purdue · hands-on Python labs and office hours for 90+ visiting scholars", []),
+        ("Reader/Grader, ISyE 320: Simulation and Probabilistic Modeling", "Sep 2026 – present", "UW–Madison · Prof. Qiaomin Xie · sole grader for 80+ students", []),
+        ("Teaching Assistant, KIAT Data Analytics Program", "Jun – Aug 2026", "Purdue · Prof. Martin Jun · Python labs for 90+ students across 20 sessions", []),
+        ("Teaching Assistant, Future Industrial Revolution and Technology Start-Up", "Jul 2025", "Ajou University · Prof. Jinam Wang · final presentation event for 50+ students", []),
+        ("Education Volunteer, Hyundai Motor Group H-Jump School", "Mar – Nov 2024", "100+ hours teaching English and math to high school students", []),
     ]),
     ("Honors &amp; Awards", [
         ("2nd Place, IEOM Senior Capstone Design Competition", "2026", "", []),
-        ("3rd of 33 teams, IISE QCRE Data Challenge", "2026", "", []),
-        ("1st Place, UW–Madison LikeLion Hackathon (Incident Copilot)", "2026", "", []),
-        ("Finalist, UW–Madison Cursor Hackathon (Polaris)", "2026", "", []),
-        ("4th Prize, Plexus Challenge, UW–Madison Engineering Makerthon", "2025", "", []),
-        ("2nd Prize, Witeck Field-based Technical Problem Solving Project", "2024", "", []),
-        ("3rd Prize, Seongnam City Public Data Analysis Idea Contest", "2024", "", []),
-        ("1st Prize, 10th Ajou Hidden Champion Contest", "2023", "", []),
-        ("Ajou University scholarships; Guwon Scholarship Foundation", "2023 – 2025", "", []),
+        ("3rd of 33 teams, IISE QCRE Data Challenge", "May 2026", "", []),
+        ("1st Place, UW–Madison LikeLion Hackathon (Incident Copilot)", "Apr 2026", "", []),
+        ("Finalist, Cursor Hackathon (Polaris)", "Apr 2026", "", []),
+        ("4th Place, UW–Madison College of Engineering Makerthon", "Sep 2025", "", []),
+        ("2nd Place, Field-based Technical Problem Solving Project (MOTIR, South Korea)", "Nov 2024", "", []),
+        ("3rd Place, Seongnam City Public Data Analysis Idea Contest", "Jul 2024", "", []),
+        ("Guwon Scholarship, South Korea (top 4%)", "Sep 2023 – Jul 2024", "", []),
+        ("Ajou University scholarships (about $20,000 total)", "Mar 2023 – Sep 2025", "", []),
+        ("1st Place, 10th Ajou Hidden Champion Contest", "Aug 2023", "", []),
+    ]),
+    ("Entrepreneurship", [
+        ("Co-Technical Lead, NSF I-Corps Quantum+X", "Sep – Oct 2026", "Interviews with quantum-industry leaders on how quantum technology could support a RAG-based LLM for fusion research", []),
+        ("Co-Entrepreneurial Lead, NSF I-Corps BOOST, Great Lakes Regional Hub", "Jun – Aug 2026", "Customer discovery with nuclear-industry practitioners on how operational knowledge is captured and passed on. 50+ interviews across the two programs.", []),
     ]),
     ("Leadership &amp; Service", [
-        ("Co-Entrepreneurial Lead, NSF I-Corps BOOST", "Summer 2026", "Customer discovery on knowledge management in nuclear operations", []),
-        ("Participant, NSF I-Corps Quantum+X", "Sep 2026 – present", "", []),
-        ("Public Relations Manager, LikeLion US at UW–Madison", "2026 – present", "", []),
-        ("Vice President (prev. Treasurer), WAI Career Organization, Ajou IE", "Sep 2023 – Aug 2024", "Organized career talks for 100+ students", []),
-        ("Volunteer Educator, Hyundai Motor Group H-Jump School", "Mar – Nov 2024", "100+ hours teaching English and math", []),
+        ("Public Relations Manager and Data Science Team Member, LikeLion US at UW–Madison", "Jan 2026 – present", "", []),
+        ("Notetaker, McBurney Disability Resource Center, UW–Madison", "Sep 2025 – May 2026", "", []),
+        ("Vice President (prev. Treasurer), WAI Career Organization, Ajou IE", "Sep 2023 – Aug 2024", "Organized career talks with industry professionals and alumni for 100+ students", []),
     ]),
     ("Skills", [
-        ("Programming", "", "Python, C++, SQL, NumPy, pandas, SciPy, Git, CMake", []),
-        ("Machine learning &amp; vision", "", "PyTorch, scikit-learn, XGBoost, Detectron2, OpenCV", []),
-        ("Signal processing", "", "STFT, log-mel features, acoustic equalization, template matching, event averaging, audio/video/log synchronization", []),
+        ("Programming", "", "Python, R, C++, MATLAB, C#", []),
+        ("Frameworks", "", "PyTorch, TensorFlow, Detectron2, OpenCV, scikit-learn, pandas, Matplotlib", []),
+        ("Machine learning", "", "CNNs (YOLO, Faster R-CNN), RNNs and LSTMs, encoder–decoder models, SVM, XGBoost", []),
+        ("Signal processing", "", "FFT, STFT and spectrograms, acoustic equalization, template matching (NCC)", []),
+        ("Tools", "", "Git, CMake, FastAPI, QGIS, Unity", []),
     ]),
 ]
 
@@ -467,6 +498,14 @@ def pub_item(pub, p):
 </div></div></li>"""
 
 
+def skills_html():
+    rows = []
+    for label, tags in SKILLS:
+        chips = "".join(f'<span class="tag">{t}</span>' for t in tags)
+        rows.append(f'<div class="skill-row"><span class="skill-label">{label}</span><div class="card-tags">{chips}</div></div>')
+    return f'<div class="skills">{"".join(rows)}</div>'
+
+
 def build_about():
     p = ""
     selected = "\n".join(pub_item(x, p) for x in PUBS if x["selected"])
@@ -485,6 +524,9 @@ def build_about():
 </div>
 <div class="about-text">{ABOUT_HTML}</div>
 </article>
+
+<h2 class="section-title">skills</h2>
+{skills_html()}
 
 <h2 class="section-title"><a href="news/">news</a></h2>
 {news_table(NEWS[:5])}
