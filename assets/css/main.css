@@ -371,7 +371,7 @@ a.hcard:hover { text-decoration: none; color: var(--text); transform: translateY
 }
 a.vcard:hover { text-decoration: none; color: var(--text); transform: translateY(-2px); }
 .vcard .icon-thumb {
-  height: 120px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -381,7 +381,7 @@ a.vcard:hover { text-decoration: none; color: var(--text); transform: translateY
     radial-gradient(circle at 20% 20%, rgba(197, 5, 12, 0.12), transparent 60%),
     linear-gradient(135deg, var(--tint), var(--bg-soft));
 }
-.vcard .img-thumb { height: 120px; background: var(--bg-soft) center / cover no-repeat; }
+.vcard .img-thumb { height: 150px; background: var(--bg-soft) center top / cover no-repeat; border-bottom: 1px solid var(--divider); }
 .vcard .card-body { padding: 14px 16px 16px; flex: 1; }
 .vcard .card-title { font-size: 1.05rem; }
 .vcard .card-text { font-size: 0.92rem; }

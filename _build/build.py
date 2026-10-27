@@ -22,7 +22,7 @@ SITE = {
     "github": "https://github.com/joannemiki57",
     "linkedin": "https://www.linkedin.com/in/joannejyun/",
     "cv_pdf": "assets/pdf/Joanne_Yun_CV.pdf",
-    "updated": "October 19, 2026",
+    "updated": "October 26, 2026",
 }
 
 ABOUT_HTML = """
@@ -275,10 +275,10 @@ RESEARCH = [
 
 # Smaller projects: grid cards, no page of their own.
 BUILDS = [
-    {"title": "Incident Copilot", "icon": "fa-solid fa-life-ring", "sub": "1st Place · UW–Madison LikeLion Hackathon 2026",
+    {"title": "Incident Copilot", "img": "assets/img/projects/build_incident.jpg", "icon": "fa-solid fa-life-ring", "sub": "1st Place · UW–Madison LikeLion Hackathon 2026",
      "text": "An incident-response console that walks raw logs through triage, root-cause hypotheses, evidence, and an action plan with human-in-the-loop gates. Built in a day by a team of three.",
      "tags": ["Next.js", "FastAPI", "SSE"], "url": "https://github.com/joannemiki57/IncidentCopilot"},
-    {"title": "Polaris", "icon": "fa-solid fa-diagram-project", "sub": "Finalist · UW–Madison Cursor Hackathon 2026",
+    {"title": "Polaris", "img": "assets/img/projects/build_polaris.jpg", "icon": "fa-solid fa-diagram-project", "sub": "Finalist · UW–Madison Cursor Hackathon 2026",
      "text": "Type a research question, get a knowledge graph grounded in real papers from OpenAlex, then expand nodes and chat with the papers.",
      "tags": ["React", "TypeScript", "Gemini"], "url": "https://github.com/joannemiki57/Polaris"},
     {"title": "OraQ", "icon": "fa-solid fa-tooth", "sub": "LikeLion Data Science Team · Spring 2026",
@@ -299,7 +299,7 @@ BUILDS = [
     {"title": "Bicycle Lift Siting", "icon": "fa-solid fa-map-location-dot", "sub": "Korean Society of Systems Engineering · 2025",
      "text": "Where should a city put bicycle lifts on steep roads? An optimization using QGIS and public spatial data.",
      "tags": ["QGIS", "optimization"], "url": ""},
-    {"title": "Trips", "icon": "fa-solid fa-images", "sub": "Personal project · iOS",
+    {"title": "Trips", "img": "assets/img/projects/build_trips.jpg", "icon": "fa-solid fa-images", "sub": "Personal project · iOS",
      "text": "A SwiftUI app that turns a trip's camera roll into a curated album once the trip is over.",
      "tags": ["Swift", "SwiftUI"], "url": "https://github.com/joannemiki57/Trips"},
 ]
@@ -536,7 +536,7 @@ def build_projects():
     )
     vcards = []
     for b in BUILDS:
-        thumb = (f'<div class="img-thumb" style="background-image:url(\'{p}{b["img"]}\');background-size:contain;background-color:#fff"></div>'
+        thumb = (f'<div class="img-thumb" style="background-image:url(\'{p}{b["img"]}\')"></div>'
                  if b.get("img") else f'<div class="icon-thumb"><i class="{b["icon"]}"></i></div>')
         tag = "a" if b["url"] else "div"
         href = f' href="{b["url"]}"' if b["url"] else ""
