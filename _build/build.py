@@ -28,9 +28,9 @@ SITE = {
 }
 
 ABOUT_HTML = """
-<p>I'm a master's student in <a href="https://engineering.wisc.edu/department/industrial-systems-engineering/">Industrial &amp; Systems Engineering</a> at the <a href="https://www.wisc.edu/">University of Wisconsin–Madison</a>, where I'm a research assistant in the <a href="https://feap.wiscweb.wisc.edu/">Flexible Electronics &amp; Additive Printing (FEAP) Lab</a> advised by <a href="https://directory.engr.wisc.edu/ie/faculty/qin_hantang">Prof. Hantang Qin</a> and <a href="https://directory.engr.wisc.edu/ie/faculty/liu_kaibo">Prof. Kaibo Liu</a>. This past summer I was a research intern in Prof. Martin Jun's Laboratory for Advanced Multiscale Manufacturing (LAMM) at Purdue University.</p>
+<p>I'm a master's student in <a href="https://engineering.wisc.edu/department/industrial-systems-engineering/">Industrial &amp; Systems Engineering</a> at the <a href="https://www.wisc.edu/">University of Wisconsin–Madison</a>. Since fall 2025 I've been a research assistant in the <a href="https://feap.wiscweb.wisc.edu/">Flexible Electronics &amp; Additive Printing (FEAP) Lab</a> advised by <a href="https://directory.engr.wisc.edu/ie/faculty/qin_hantang">Prof. Hantang Qin</a> and <a href="https://directory.engr.wisc.edu/ie/faculty/liu_kaibo">Prof. Kaibo Liu</a>. This past summer I was a research intern in Prof. Martin Jun's Laboratory for Advanced Multiscale Manufacturing (LAMM) at Purdue University.</p>
 
-<p>I did my B.S. in Industrial Engineering at <a href="https://www.ajou.ac.kr/en/index.do">Ajou University</a> in Suwon, South Korea, where I finished first in my class of 139, and spent my final undergraduate year at UW–Madison as a visiting student. At Ajou I worked in Prof. Jooyeon Lee's New Industrial Convergence R&amp;D Lab on solar-panel telemetry and a microfluidic sweat sensor.</p>
+<p>I did my B.S. in Industrial Engineering at <a href="https://www.ajou.ac.kr/en/index.do">Ajou University</a> in Suwon, South Korea, where I finished first in my class of 139. At Ajou I worked in Prof. Jooyeon Lee's New Industrial Convergence R&amp;D Lab on solar-panel telemetry and a microfluidic sweat sensor.</p>
 
 <p>My research is machine learning for manufacturing: multimodal data analysis, in-situ process monitoring, and federated learning. Right now I'm most interested in <b>sound</b>: whether a microphone next to a machine can tell us what the process is actually doing, layer by layer. I also work on visual defect inspection and on models that still hold up when the data comes from different machines and labs.</p>
 <p>I like to learn new stuff, and my projects show it: inkjet printing, laser powder bed fusion audio, camera calibration, an oral cancer screening app. Manufacturing is where most of them meet. Outside the lab I play violin, build Lego, and keep a long list of movies and books to get through.</p>
@@ -49,7 +49,7 @@ NEWS = [
     ("Jun 2026", "Co-Entrepreneurial Lead for <b>NSF I-Corps BOOST</b>, interviewing people in nuclear operations about how they manage knowledge."),
     ("Apr 2026", '<a href="https://github.com/joannemiki57/IncidentCopilot">Incident Copilot</a> won <b>1st Place</b> at the UW–Madison LikeLion Hackathon, and <a href="https://github.com/joannemiki57/Polaris">Polaris</a> was a <b>finalist</b> at the UW–Madison Cursor Hackathon.'),
     ("Apr 2026", "Presented <b>OraQ</b>, an AI oral cancer pre-screening app, with the LikeLion Data Science Team. I built the data pipeline and the backend."),
-    ("Sep 2025", "Arrived at UW–Madison and joined Prof. Hantang Qin's FEAP Lab. Our team took <b>4th Prize</b> in the Plexus Challenge at the Engineering Makerthon."),
+    ("Sep 2025", "Started my M.S. in Industrial &amp; Systems Engineering at UW–Madison and joined Prof. Hantang Qin's FEAP Lab. Our team took <b>4th Prize</b> in the Plexus Challenge at the Engineering Makerthon."),
     ("May 2025", "Presented “Bicycle Lift Installation Optimization based on Spatial Information” at the Korean Society of Systems Engineering."),
     ("Nov 2024", "Our microfluidic sweat-sensing patch won <b>2nd Prize</b> in the Witeck field-based technical problem-solving project."),
 ]
