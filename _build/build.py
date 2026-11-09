@@ -5,6 +5,7 @@ Run from anywhere:  python3 _build/build.py
 Edit the CONTENT section, re-run, and commit the generated .html files.
 """
 import html
+import json
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,7 +23,8 @@ SITE = {
     "github": "https://github.com/joannemiki57",
     "linkedin": "https://www.linkedin.com/in/joannejyun/",
     "cv_pdf": "assets/pdf/Joanne_Yun_CV.pdf",
-    "updated": "October 27, 2026",
+    "updated": "November 8, 2026",
+    "url": "https://joannemiki57.github.io/",
 }
 
 ABOUT_HTML = """
@@ -30,7 +32,9 @@ ABOUT_HTML = """
 
 <p>I did my B.S. in Industrial Engineering at <a href="https://www.ajou.ac.kr/en/index.do">Ajou University</a> in Suwon, South Korea, where I finished first in my class of 139, and spent my final undergraduate year at UW–Madison as a visiting student. At Ajou I worked in Prof. Jooyeon Lee's New Industrial Convergence R&amp;D Lab on solar-panel telemetry and a microfluidic sweat sensor.</p>
 
-<p>My research is machine learning for manufacturing. Right now I'm most interested in <b>sound</b>: whether a microphone next to a machine can tell us what the process is actually doing, layer by layer. I also work on visual defect inspection and on models that still hold up when the data comes from different machines and labs.</p>
+<p>My research is machine learning for manufacturing: multimodal data analysis, in-situ process monitoring, and federated learning. Right now I'm most interested in <b>sound</b>: whether a microphone next to a machine can tell us what the process is actually doing, layer by layer. I also work on visual defect inspection and on models that still hold up when the data comes from different machines and labs.</p>
+
+<p class="callout">I'm applying to PhD programs for Fall 2027.</p>
 
 <p>I like to learn new stuff, and my projects show it: inkjet printing, laser powder bed fusion audio, camera calibration, an oral cancer screening app. Manufacturing is where most of them meet. Outside the lab I play violin, build Lego, and keep a long list of movies and books to get through.</p>
 
@@ -39,16 +43,16 @@ ABOUT_HTML = """
 
 # (date, html). Newest first.
 NEWS = [
-    ("Oct 2026", 'Leading the acoustic analysis team on a <a href="projects/lpbf-acoustics/">laser powder bed fusion monitoring project</a>: we split hours of chamber audio into individual printed layers.'),
-    ("Sep 2026", "Started my M.S. in Industrial &amp; Systems Engineering at UW–Madison and joined the FEAP Lab as a research assistant. I'm also the reader/grader for ISyE 320 (Simulation and Probabilistic Modeling) this fall."),
-    ("Sep 2026", "Joined <b>NSF I-Corps Quantum+X</b> to explore where quantum sensing and computing could meet fusion research."),
+    ("Oct 2026", 'Leading the acoustic team on a DOE FIRE project, monitoring <a href="projects/lpbf-acoustics/">laser powder bed fusion builds with sound and video</a> to predict ductility and yield strength of each printed sample.'),
+    ("Sep 2026", "Started my second year at UW–Madison, now co-advised by Prof. Hantang Qin and Prof. Kaibo Liu. I'm also the reader/grader for ISyE 320 (Simulation and Probabilistic Modeling) this fall."),
+    ("Sep 2026", "Co-Technical Lead for <b>NSF I-Corps Quantum+X</b>, interviewing people at Quantinuum, Microsoft Quantum, IonQ, and others about how quantum technology could support an LLM for fusion research."),
     ("Jun 2026", 'Our paper <a href="publications/">“Federated Learning-Based Regression Framework to Predict Printed Line Width in Electrohydrodynamic Inkjet Printing”</a> was presented at <b>NAMRC 54</b> (MSEC 2026) and published in <i>Manufacturing Letters</i>.'),
     ("Jun 2026", 'Our perforation defect detection work won <b>2nd Place</b> at the IEOM Senior Capstone Design Competition in Milwaukee, after placing <b>3rd of 33 teams</b> in the IISE QCRE Data Challenge.'),
     ("Jun 2026", 'Started a summer research internship at Purdue LAMM with Prof. Martin Jun, working on <a href="projects/ded-acoustics/">acoustic monitoring for directed energy deposition</a> and <a href="projects/svm-calibration/">surround-view camera calibration</a>. I also led Python labs for the KIAT Data Analytics Program.'),
     ("Jun 2026", "Co-Entrepreneurial Lead for <b>NSF I-Corps BOOST</b>, interviewing people in nuclear operations about how they manage knowledge."),
     ("Apr 2026", '<a href="https://github.com/joannemiki57/IncidentCopilot">Incident Copilot</a> won <b>1st Place</b> at the UW–Madison LikeLion Hackathon, and <a href="https://github.com/joannemiki57/Polaris">Polaris</a> was a <b>finalist</b> at the UW–Madison Cursor Hackathon.'),
     ("Apr 2026", "Presented <b>OraQ</b>, an AI oral cancer pre-screening app, with the LikeLion Data Science Team. I built the data pipeline and the backend."),
-    ("Sep 2025", "Arrived at UW–Madison as a visiting student and joined the FEAP Lab as an undergraduate researcher. Our team took <b>4th Prize</b> in the Plexus Challenge at the Engineering Makerthon."),
+    ("Sep 2025", "Arrived at UW–Madison and joined Prof. Hantang Qin's FEAP Lab. Our team took <b>4th Prize</b> in the Plexus Challenge at the Engineering Makerthon."),
     ("May 2025", "Presented “Bicycle Lift Installation Optimization based on Spatial Information” at the Korean Society of Systems Engineering."),
     ("Nov 2024", "Our microfluidic sweat-sensing patch won <b>2nd Prize</b> in the Witeck field-based technical problem-solving project."),
 ]
@@ -90,11 +94,12 @@ PUBS = [
         "thumb": "assets/img/projects/defect_poster.jpg",
         "title": "End-to-End Computer Vision Pipeline for Perforation Defect Detection and Classification in Industrial Imaging",
         "authors": ["Joanne Yun", "Hasnaa Ouidadi", "Khawlah Alharbi", "Pengyu Zhang", "Hantang Qin"],
-        "venue": "Poster, <em>11th North American Conference on Industrial Engineering and Operations Management</em>, Milwaukee, WI",
+        "venue": "In <em>Proceedings of the 11th North American Conference on Industrial Engineering and Operations Management</em>, Milwaukee, WI",
         "date": "Jun 2026",
         "award": "2nd Place, IEOM Senior Capstone Design Competition",
         "abstract": "",
         "links": [
+            ("Paper", "https://index.ieomsociety.org/index.cfm/item/64561"),
             ("Poster", "assets/pdf/IEOM2026_poster_Yun.pdf"),
             ("Project", "projects/perforation-defects/"),
         ],
@@ -142,20 +147,19 @@ RESEARCH = [
         "title": "Listening to a Laser Powder Bed Fusion Print",
         "sub": "UW–Madison FEAP Lab · Sep 2026 to present",
         "img": "assets/img/projects/lpbf_spectrogram.jpg",
-        "blurb": "Splitting hours of chamber audio into individual printed layers, as the first step toward predicting material properties of EUROFER97 steel from sound.",
-        "tags": ["acoustics", "signal processing", "LPBF"],
-        "meta": "UW–Madison, Flexible Electronics &amp; Additive Printing Lab · Advisor: Prof. Hantang Qin · Team lead, acoustic analysis",
+        "blurb": "Using chamber audio and video to predict the ductility and yield strength of every sample on an LPBF build plate. First step: cutting a 5-hour recording into 209 layers automatically.",
+        "tags": ["acoustics", "video", "signal processing", "LPBF"],
+        "meta": "UW–Madison, Flexible Electronics &amp; Additive Printing Lab · DOE FIRE project (MBSE TG3) · Team lead, acoustic team",
         "body": """
-<p>Laser powder bed fusion (LPBF) builds a metal part one thin layer at a time: a recoater blade spreads powder, the laser melts the cross-section, and the cycle repeats. A microphone in the build chamber hears all of it. The question behind this project is whether that sound can tell us something about the material being made. Before any of that, the audio has to be cut into layers, and on a multi-hour recording that has to be automatic.</p>
+<p>Laser powder bed fusion (LPBF) builds a metal part one thin layer at a time: a recoater blade spreads powder, the laser melts the cross-section, and the cycle repeats. A microphone and a camera in the build chamber record all of it. The goal of this project, part of a DOE FIRE effort on EUROFER97 steel, is to predict the <b>ductility and yield strength</b> of each printed sample from those recordings. Before any modeling, the audio has to be cut into layers and every sample on the plate has to be located, and on a multi-hour build both have to be automatic.</p>
 
 <div class="figure"><img src="../../assets/img/projects/lpbf_spectrogram.jpg" alt="Spectrogram of LPBF chamber audio for one layer"><figcaption>Chamber microphone spectrogram for a single layer, after cleaning.</figcaption></div>
 
 <h3>What I built</h3>
 <ul>
-<li>A Python pipeline that isolates printing layers from LPBF chamber audio, supporting a funded project on in-situ material-property prediction for EUROFER97 steel.</li>
-<li>Acoustic equalization, harmonic–percussive separation, and log-mel template matching to find recoater events, then layer boundaries from the energy change when the laser restarts.</li>
-<li>A 5.2-hour recording segmented into <b>209 layer segments</b> and its shorter companion channel into <b>135</b>, exported as WAV clips with an Excel timing index and spot-checked by hand.</li>
-<li>A video-side check: the chamber camera sees the laser, so brightness inside the build-plate region gives an independent laser-on/off signal.</li>
+<li><b>Layer segmentation from audio.</b> Acoustic equalization plus normalized cross-correlation (NCC) template matching on the recoater sound found <b>209 layers</b> in a 5-hour build. Earlier RMS and watchdog approaches produced 415 to 3,039 false layer boundaries on the same recording.</li>
+<li><b>Laser-off detection from video.</b> Keyframe sampling with Otsu-derived brightness thresholds recovers <b>95 laser-off intervals</b> from about 620,000 frames in roughly 2.5 minutes on a laptop, an independent check on the audio timeline.</li>
+<li><b>Part map.</b> A homography-based map that labels all 353 build-plate samples in chamber-camera frames, so each sound can be tied to the sample being printed (331 of 346 pooled detections matched to the reference grid so far).</li>
 </ul>
 
 <div class="figure"><img src="../../assets/img/projects/lpbf_template.jpg" alt="Equalized spectrogram of the recoater template"><figcaption>The recoater pass has a clear acoustic signature, which becomes a template for matching.</figcaption></div>
@@ -183,10 +187,10 @@ RESEARCH = [
 
 <h3>What I did</h3>
 <ul>
-<li>Analyzed a six-run subsystem-isolation study to separate laser, powder-feed, and motion contributions in the audio.</li>
-<li>Aligned audio, video, and machine logs using oxygen readings, with a <b>0.17 s</b> alignment residual in the analyzed recordings.</li>
+<li>Analyzed a six-run isolation experiment in which powder feed, stage motion, and laser were switched on independently.</li>
+<li>Synchronized audio, video, and machine logs by regressing the panel O<sub>2</sub> readings against the log, with a <b>0.17 s</b> residual. This corrected an earlier manual offset estimate by 3.4 s.</li>
 <li>Mapped G-code operations to machine-log timestamps and segmented the audio into contour, infill, traverse, and layer transition, so laser-on and laser-off runs of the same operation could be compared directly.</li>
-<li>Found that apparent broadband "laser events" also showed up in the laser-off controls. Averaging over 45 laser-on edges revealed a <b>7–8.5 kHz transient</b> that is absent from the matching control, a candidate process signature for further study.</li>
+<li>Showed that the laser cannot be detected from band energy alone (under 0.4 dB difference). Event-related averaging over 45 laser-on edges then recovered a <b>7–8.5 kHz burst</b> at about 6σ that is absent from the laser-off control, a candidate process signature for further study.</li>
 </ul>
 
 <div class="figure"><img src="../../assets/img/projects/ded_timefreq.jpg" alt="Waveform and spectrogram of a synchronized run"><figcaption>Waveform and spectrogram of one synchronized run.</figcaption></div>
@@ -197,19 +201,19 @@ RESEARCH = [
         "title": "Geometry-Based Surround-View Camera Calibration",
         "sub": "Purdue LAMM · Summer 2026",
         "img": "assets/img/projects/calib_grid.jpg",
-        "blurb": "A targetless way to refine camera roll from known vehicle dimensions and image boundaries, plus work on a C++/OpenCV surround-view simulator.",
-        "tags": ["computer vision", "calibration", "OpenCV"],
-        "meta": "Purdue University, Laboratory for Advanced Multiscale Manufacturing · Prof. Martin Jun · Research intern",
+        "blurb": "Calibrating commercial-vehicle fisheye cameras without printed targets, using the vehicle's own body edge. Median roll error of 1.21–1.68° across 232 real camera views.",
+        "tags": ["computer vision", "calibration", "OpenCV", "C++"],
+        "meta": "Purdue University, Laboratory for Advanced Multiscale Manufacturing · Prof. Martin Jun · with Miratek and Hyundai Translead",
         "body": """
-<p>Surround-view systems stitch four fisheye cameras into a single bird's-eye view. If one camera is slightly rotated, the seams tear. Factory calibration uses printed targets; the goal here was to tighten calibration without them, so the system can keep itself calibrated on the road.</p>
+<p>Surround-view systems stitch four fisheye cameras into a single bird's-eye view. If one camera is slightly rotated, the seams tear. Factory calibration uses printed targets; the goal here was to calibrate without them, so a truck or bus can keep itself calibrated after it leaves the factory.</p>
 
 <div class="figure"><img src="../../assets/img/projects/calib_grid.jpg" alt="Four fisheye views with projected ground grids"><figcaption>Projected ground grids on all four fisheye cameras, used to check the extrinsics.</figcaption></div>
 
 <h3>What I did</h3>
 <ul>
-<li>Proposed and implemented a targetless calibration method that uses known vehicle dimensions and image boundaries to refine camera roll, narrowing the image-search region for online road calibration.</li>
-<li>Implemented gradient-based boundary extraction and robust optimization in Python/OpenCV, compared calibration methods, and investigated systematic bias and poorly conditioned views.</li>
-<li>Contributed to a C++/OpenCV surround-view simulator with interactive camera-pose switching, and ported a road-scene selection pipeline built on feature tracking and geometric outlier rejection.</li>
+<li>Proposed a target-free extrinsic calibration method that uses the <b>vehicle body boundary</b> as a geometric constraint, estimating roll and then yaw with gradient-based boundary detection and Huber-loss optimization.</li>
+<li>Reached a <b>median roll error of 1.21–1.68°</b> across 232 camera views from 58 real bus images, and cut the worst-case error from 26.8° to 19.2° compared with the existing method, measured in a C++/OpenCV evaluation harness.</li>
+<li>Traced about half of the remaining error to a per-camera systematic bias, and found a simulator update that had silently corrupted the ground truth for 56 of 58 sessions.</li>
 </ul>
 
 <div class="fig-row">
@@ -237,7 +241,8 @@ RESEARCH = [
 <h3>My part</h3>
 <ul>
 <li>Built individual XGBoost regressors and data-processing pipelines for <b>8 printing-system clients</b> in a study reporting 1,185 experimental runs. These are the baseline the federated framework is compared against.</li>
-<li>Showed that a strong within-client model (<b>R² = 0.983</b>) gave <b>negative R²</b> on four other clients when transferred. That cross-system failure is the motivation for the federated comparison.</li>
+<li>Showed that a strong within-client model (<b>R² = 0.983</b>) gave <b>negative R²</b> on four of the eight clients when transferred. That cross-system failure is the motivation for the federated comparison.</li>
+<li>Traced the failure to non-IID client data (different substrates, printers, operators, and available features) and built the pandas ETL pipeline that made the client datasets comparable.</li>
 </ul>
 
 <div class="figure"><img src="../../assets/img/projects/ehd_scatter.jpg" alt="Actual vs predicted line width for individual, centralized, and federated learning"><figcaption>Actual vs. predicted line width for individual, centralized, and federated learning. Figure from Zhang, Yun &amp; Qin, <i>Manufacturing Letters</i> 49 (2026), CC BY-NC-ND 4.0.</figcaption></div>
@@ -260,8 +265,9 @@ RESEARCH = [
 <ul>
 <li>Co-led the defect-inspection research and designed an annotation strategy of roughly <b>900 images</b> (informative plus random samples) out of 25,000.</li>
 <li>Co-wrote the sampling and pseudo-labeling methods for the manuscript, and evaluated the adaptive-thresholding pseudo-labeler with component ablations and a six-parameter sensitivity analysis.</li>
-<li>Under a center-based localization metric, the pipeline located <b>93.4% of 852 regions</b> across 213 images with 18 false boxes.</li>
-<li>Reconstructed the Faster R-CNN training pipeline, reaching <b>85.0% AP / 97.6% AP50</b> on 178 validation images.</li>
+<li>Under a center-based localization metric, the pipeline located <b>93.4% of 852 regions</b> across 213 images with 18 false boxes, and stayed at 92–95% across every sensitivity setting.</li>
+<li>Designed that center-based metric after finding that over-padded ground-truth boxes made IoU@0.5 penalize detections that were actually correct.</li>
+<li>Trained a Faster R-CNN detector (<b>AP50 96.8%</b>) for the QCRE Data Challenge, then rebuilt the lost pipeline in Detectron2 and reproduced it at <b>AP 85.0 / AP50 97.6</b> on 178 validation images.</li>
 </ul>
 
 <div class="figure"><img src="../../assets/img/projects/defect_flow.jpg" alt="Adaptive thresholding pseudo-label flow"><figcaption>The pseudo-labeling flow: dual-stage detector, geometric filter, dot association, NMS, auto pseudo-label.</figcaption></div>
@@ -398,14 +404,14 @@ def esc(s):
 
 def social(p):
     return f"""<div class="social-icons">
-<a href="mailto:{SITE['email']}" title="email"><i class="fa-solid fa-envelope"></i></a>
-<a href="{SITE['scholar']}" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
-<a href="{SITE['github']}" title="GitHub"><i class="fa-brands fa-github"></i></a>
-<a href="{SITE['linkedin']}" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+<a href="mailto:{SITE['email']}" title="email" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+<a href="{SITE['scholar']}" title="Google Scholar" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+<a href="{SITE['github']}" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+<a href="{SITE['linkedin']}" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
 </div>"""
 
 
-def page(title, active, p, body, description=""):
+def page(title, active, p, body, description="", path="", head_extra=""):
     """p is the relative prefix back to the site root ('' or '../' etc.)."""
     act = ' class="active"'
     nav = "\n".join(
@@ -426,7 +432,12 @@ def page(title, active, p, body, description=""):
 <meta name="author" content="{esc(SITE['full'])}">
 <meta property="og:title" content="{esc(full_title)}">
 <meta property="og:description" content="{esc(desc)}">
-<meta property="og:image" content="https://joannemiki57.github.io/assets/img/prof_pic.jpg">
+<link rel="canonical" href="{SITE['url']}{path}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{SITE['url']}{path}">
+<meta property="og:image" content="{SITE['url']}assets/img/prof_pic.jpg">
+<meta name="twitter:card" content="summary">
+{head_extra}
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%23c5050c%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22>JY</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -506,6 +517,43 @@ def skills_html():
     return f'<div class="skills">{"".join(rows)}</div>'
 
 
+def person_schema():
+    data = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": SITE["full"],
+        "alternateName": f"{SITE['first']} {SITE['last']}",
+        "url": SITE["url"],
+        "image": SITE["url"] + "assets/img/prof_pic.jpg",
+        "email": "mailto:" + SITE["email"],
+        "jobTitle": "Graduate Research Assistant",
+        "affiliation": {"@type": "CollegeOrUniversity", "name": "University of Wisconsin–Madison"},
+        "alumniOf": {"@type": "CollegeOrUniversity", "name": "Ajou University"},
+        "knowsAbout": ["Machine learning for manufacturing", "Acoustic process monitoring",
+                       "In-situ process monitoring", "Federated learning", "Computer vision"],
+        "sameAs": [SITE["scholar"], SITE["github"], SITE["linkedin"]],
+    }
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + "</script>"
+
+
+def build_404():
+    body = """
+<div class="post-header">
+<h1 class="post-title">page not found</h1>
+<p class="post-description">That page doesn't exist, or it moved. Try the <a href="/">home page</a> or the <a href="/projects/">projects</a>.</p>
+</div>
+"""
+    # Served from any URL depth, so this page uses root-absolute paths.
+    write("404.html", page("not found", "", "/", body))
+
+
+def build_sitemap():
+    paths = ["", "publications/", "projects/", "news/", "cv/"] + [f"projects/{r['slug']}/" for r in RESEARCH]
+    urls = "\n".join(f"  <url><loc>{SITE['url']}{x}</loc></url>" for x in paths)
+    write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n')
+    write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE['url']}sitemap.xml\n")
+
+
 def build_about():
     p = ""
     selected = "\n".join(pub_item(x, p) for x in PUBS if x["selected"])
@@ -525,20 +573,20 @@ def build_about():
 <div class="about-text">{ABOUT_HTML}</div>
 </article>
 
-<h2 class="section-title">skills</h2>
-{skills_html()}
-
 <h2 class="section-title"><a href="news/">news</a></h2>
 {news_table(NEWS[:5])}
 
 <h2 class="section-title"><a href="publications/">selected publications</a></h2>
 <ol class="bibliography">{selected}</ol>
 
+<h2 class="section-title">skills</h2>
+{skills_html()}
+
 <h2 class="section-title">around madison</h2>
 <p class="post-description">A few photos from my first year here.</p>
 <div class="gallery">{gallery}</div>
 """
-    write("index.html", page("about", "about", p, body))
+    write("index.html", page("about", "about", p, body, head_extra=person_schema()))
 
 
 def build_publications():
@@ -560,7 +608,7 @@ def build_publications():
 </div>
 {''.join(parts)}
 """
-    write("publications/index.html", page("publications", "publications", p, body))
+    write("publications/index.html", page("publications", "publications", p, body, path="publications/"))
 
 
 def build_projects():
@@ -601,7 +649,7 @@ def build_projects():
 <h2 class="section-title">builds &amp; side projects</h2>
 <div class="grid">{''.join(vcards)}</div>
 """
-    write("projects/index.html", page("projects", "projects", p, body))
+    write("projects/index.html", page("projects", "projects", p, body, path="projects/"))
 
     for r in RESEARCH:
         pp = "../../"
@@ -614,7 +662,7 @@ def build_projects():
 <div class="content">{r['body']}</div>
 <a class="back-link" href="../">← all projects</a>
 """
-        write(f"projects/{r['slug']}/index.html", page(r["title"], "projects", pp, body, r["blurb"]))
+        write(f"projects/{r['slug']}/index.html", page(r["title"], "projects", pp, body, r["blurb"], path=f"projects/{r['slug']}/"))
 
 
 def build_news():
@@ -625,7 +673,7 @@ def build_news():
 <div class="post-header"><h1 class="post-title">news</h1></div>
 {news_table(items)}
 """
-    write("news/index.html", page("news", "news", p, body))
+    write("news/index.html", page("news", "news", p, body, path="news/"))
 
 
 def build_cv():
@@ -650,7 +698,7 @@ def build_cv():
 </object>
 {''.join(secs)}
 """
-    write("cv/index.html", page("cv", "cv", p, body))
+    write("cv/index.html", page("cv", "cv", p, body, path="cv/"))
 
 
 def write(rel, text):
@@ -667,5 +715,7 @@ if __name__ == "__main__":
     build_projects()
     build_news()
     build_cv()
+    build_404()
+    build_sitemap()
     # GitHub Pages: serve files as-is (no Jekyll processing of the _build folder).
     open(os.path.join(ROOT, ".nojekyll"), "w").close()

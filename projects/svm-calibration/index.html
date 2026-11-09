@@ -4,11 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Geometry-Based Surround-View Camera Calibration | Joanne Yun</title>
-<meta name="description" content="A targetless way to refine camera roll from known vehicle dimensions and image boundaries, plus work on a C++/OpenCV surround-view simulator.">
+<meta name="description" content="Calibrating commercial-vehicle fisheye cameras without printed targets, using the vehicle&#x27;s own body edge. Median roll error of 1.21–1.68° across 232 real camera views.">
 <meta name="author" content="Junghyun (Joanne) Yun">
 <meta property="og:title" content="Geometry-Based Surround-View Camera Calibration | Joanne Yun">
-<meta property="og:description" content="A targetless way to refine camera roll from known vehicle dimensions and image boundaries, plus work on a C++/OpenCV surround-view simulator.">
+<meta property="og:description" content="Calibrating commercial-vehicle fisheye cameras without printed targets, using the vehicle&#x27;s own body edge. Median roll error of 1.21–1.68° across 232 real camera views.">
+<link rel="canonical" href="https://joannemiki57.github.io/projects/svm-calibration/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://joannemiki57.github.io/projects/svm-calibration/">
 <meta property="og:image" content="https://joannemiki57.github.io/assets/img/prof_pic.jpg">
+<meta name="twitter:card" content="summary">
+
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%23c5050c%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22>JY</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,17 +44,17 @@
 <h1 class="post-title">Geometry-Based Surround-View Camera Calibration</h1>
 <p class="post-description">Purdue LAMM · Summer 2026</p>
 </div>
-<p class="project-meta">Purdue University, Laboratory for Advanced Multiscale Manufacturing · Prof. Martin Jun · Research intern</p>
+<p class="project-meta">Purdue University, Laboratory for Advanced Multiscale Manufacturing · Prof. Martin Jun · with Miratek and Hyundai Translead</p>
 <div class="content">
-<p>Surround-view systems stitch four fisheye cameras into a single bird's-eye view. If one camera is slightly rotated, the seams tear. Factory calibration uses printed targets; the goal here was to tighten calibration without them, so the system can keep itself calibrated on the road.</p>
+<p>Surround-view systems stitch four fisheye cameras into a single bird's-eye view. If one camera is slightly rotated, the seams tear. Factory calibration uses printed targets; the goal here was to calibrate without them, so a truck or bus can keep itself calibrated after it leaves the factory.</p>
 
 <div class="figure"><img src="../../assets/img/projects/calib_grid.jpg" alt="Four fisheye views with projected ground grids"><figcaption>Projected ground grids on all four fisheye cameras, used to check the extrinsics.</figcaption></div>
 
 <h3>What I did</h3>
 <ul>
-<li>Proposed and implemented a targetless calibration method that uses known vehicle dimensions and image boundaries to refine camera roll, narrowing the image-search region for online road calibration.</li>
-<li>Implemented gradient-based boundary extraction and robust optimization in Python/OpenCV, compared calibration methods, and investigated systematic bias and poorly conditioned views.</li>
-<li>Contributed to a C++/OpenCV surround-view simulator with interactive camera-pose switching, and ported a road-scene selection pipeline built on feature tracking and geometric outlier rejection.</li>
+<li>Proposed a target-free extrinsic calibration method that uses the <b>vehicle body boundary</b> as a geometric constraint, estimating roll and then yaw with gradient-based boundary detection and Huber-loss optimization.</li>
+<li>Reached a <b>median roll error of 1.21–1.68°</b> across 232 camera views from 58 real bus images, and cut the worst-case error from 26.8° to 19.2° compared with the existing method, measured in a C++/OpenCV evaluation harness.</li>
+<li>Traced about half of the remaining error to a per-camera systematic bias, and found a simulator update that had silently corrupted the ground truth for 56 of 58 sessions.</li>
 </ul>
 
 <div class="fig-row">
@@ -60,6 +65,6 @@
 <a class="back-link" href="../">← all projects</a>
 
 </main>
-<footer>© Copyright 2026 Junghyun (Joanne) Yun. Layout inspired by the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Last updated: October 27, 2026.</footer>
+<footer>© Copyright 2026 Junghyun (Joanne) Yun. Layout inspired by the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Last updated: November 8, 2026.</footer>
 </body>
 </html>

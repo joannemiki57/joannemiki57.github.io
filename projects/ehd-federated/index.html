@@ -8,7 +8,12 @@
 <meta name="author" content="Junghyun (Joanne) Yun">
 <meta property="og:title" content="Federated Learning for EHD Inkjet Printing | Joanne Yun">
 <meta property="og:description" content="Predicting printed line width across eight printing systems without pooling their data. A model that scores R² = 0.983 at home can go negative on someone else&#x27;s printer.">
+<link rel="canonical" href="https://joannemiki57.github.io/projects/ehd-federated/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://joannemiki57.github.io/projects/ehd-federated/">
 <meta property="og:image" content="https://joannemiki57.github.io/assets/img/prof_pic.jpg">
+<meta name="twitter:card" content="summary">
+
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%23c5050c%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22>JY</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,7 +56,8 @@
 <h3>My part</h3>
 <ul>
 <li>Built individual XGBoost regressors and data-processing pipelines for <b>8 printing-system clients</b> in a study reporting 1,185 experimental runs. These are the baseline the federated framework is compared against.</li>
-<li>Showed that a strong within-client model (<b>R² = 0.983</b>) gave <b>negative R²</b> on four other clients when transferred. That cross-system failure is the motivation for the federated comparison.</li>
+<li>Showed that a strong within-client model (<b>R² = 0.983</b>) gave <b>negative R²</b> on four of the eight clients when transferred. That cross-system failure is the motivation for the federated comparison.</li>
+<li>Traced the failure to non-IID client data (different substrates, printers, operators, and available features) and built the pandas ETL pipeline that made the client datasets comparable.</li>
 </ul>
 
 <div class="figure"><img src="../../assets/img/projects/ehd_scatter.jpg" alt="Actual vs predicted line width for individual, centralized, and federated learning"><figcaption>Actual vs. predicted line width for individual, centralized, and federated learning. Figure from Zhang, Yun &amp; Qin, <i>Manufacturing Letters</i> 49 (2026), CC BY-NC-ND 4.0.</figcaption></div>
@@ -59,6 +65,6 @@
 <a class="back-link" href="../">← all projects</a>
 
 </main>
-<footer>© Copyright 2026 Junghyun (Joanne) Yun. Layout inspired by the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Last updated: October 27, 2026.</footer>
+<footer>© Copyright 2026 Junghyun (Joanne) Yun. Layout inspired by the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Last updated: November 8, 2026.</footer>
 </body>
 </html>
