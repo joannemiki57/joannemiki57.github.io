@@ -54,7 +54,9 @@
 <ul>
 <li><b>Layer segmentation from audio.</b> Acoustic equalization plus normalized cross-correlation (NCC) template matching on the recoater sound found <b>209 layers</b> in a 5-hour build. Earlier RMS and watchdog approaches produced 415 to 3,039 false layer boundaries on the same recording.</li>
 <li><b>Laser-off detection from video.</b> Keyframe sampling with Otsu-derived brightness thresholds recovers <b>95 laser-off intervals</b> from about 620,000 frames in roughly 2.5 minutes on a laptop, an independent check on the audio timeline.</li>
-<li><b>Part map.</b> A homography-based map that labels all 353 build-plate samples in chamber-camera frames, so each sound can be tied to the sample being printed (331 of 346 pooled detections matched to the reference grid so far).</li>
+<li><b>Part map.</b> A homography-based map that recovers <b>331 of 353</b> build-plate sample positions in chamber-camera frames (median error 1.05 px across 16 frames), so each sound can be tied to the sample being printed.</li>
+<li><b>Audio–video sync tool.</b> Packaged the synchronization into a tool and used it to split the build audio into part-level clips for <b>151 samples</b>.</li>
+<li><b>First acoustic baselines.</b> Acoustic features recover laser power at R² 0.96–0.97. A two-stage acoustic → process → density model reaches <b>R² 0.63</b>, against 0.33 for acoustic features alone.</li>
 </ul>
 
 <div class="figure"><img src="../../assets/img/projects/lpbf_template.jpg" alt="Equalized spectrogram of the recoater template"><figcaption>The recoater pass has a clear acoustic signature, which becomes a template for matching.</figcaption></div>
@@ -69,6 +71,6 @@
 <a class="back-link" href="../">← all projects</a>
 
 </main>
-<footer>© Copyright 2026 Junghyun (Joanne) Yun. Layout inspired by the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Last updated: November 8, 2026.</footer>
+<footer>© Copyright 2026 Junghyun (Joanne) Yun. Layout inspired by the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Last updated: November 18, 2026.</footer>
 </body>
 </html>

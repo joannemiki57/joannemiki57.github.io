@@ -23,12 +23,14 @@ SITE = {
     "github": "https://github.com/joannemiki57",
     "linkedin": "https://www.linkedin.com/in/joannejyun/",
     "cv_pdf": "assets/pdf/Joanne_Yun_CV.pdf",
-    "updated": "November 8, 2026",
+    "updated": "November 18, 2026",
     "url": "https://joannemiki57.github.io/",
 }
 
 ABOUT_HTML = """
-<p>I'm a master's student in <a href="https://engineering.wisc.edu/department/industrial-systems-engineering/">Industrial &amp; Systems Engineering</a> at the <a href="https://www.wisc.edu/">University of Wisconsin–Madison</a>. Since fall 2025 I've been a research assistant in the <a href="https://feap.wiscweb.wisc.edu/">Flexible Electronics &amp; Additive Printing (FEAP) Lab</a> advised by <a href="https://directory.engr.wisc.edu/ie/faculty/qin_hantang">Prof. Hantang Qin</a> and <a href="https://directory.engr.wisc.edu/ie/faculty/liu_kaibo">Prof. Kaibo Liu</a>. This past summer I was a research intern in Prof. Martin Jun's Laboratory for Advanced Multiscale Manufacturing (LAMM) at Purdue University.</p>
+<p class="callout phd-callout"><b>I'm applying to Ph.D. programs for Fall 2027.</b> I'll finish my M.S. at UW–Madison in May 2027. Research interests: multimodal data analysis, machine learning, in-situ process monitoring, and federated learning for manufacturing. <a href="cv/">CV</a> · <a href="mailto:jyun45@wisc.edu">email</a></p>
+
+<p>I'm a master's student in <a href="https://engineering.wisc.edu/department/industrial-systems-engineering/">Industrial &amp; Systems Engineering</a> at the <a href="https://www.wisc.edu/">University of Wisconsin–Madison</a>, advised by <a href="https://directory.engr.wisc.edu/ie/faculty/qin_hantang">Prof. Hantang Qin</a>. I've been a research assistant in his <a href="https://feap.wiscweb.wisc.edu/">Flexible Electronics &amp; Additive Printing (FEAP) Lab</a> since fall 2025, when I first came to Madison as a visiting student. In spring 2026 I also did an independent study with <a href="https://directory.engr.wisc.edu/ie/faculty/liu_kaibo">Prof. Kaibo Liu</a> on federated learning for remaining-useful-life prediction. This past summer I was a research intern in Prof. Martin Jun's Laboratory for Advanced Multiscale Manufacturing (LAMM) at Purdue University.</p>
 
 <p>I did my B.S. in Industrial Engineering at <a href="https://www.ajou.ac.kr/en/index.do">Ajou University</a> in Suwon, South Korea, where I finished first in my class of 139. At Ajou I worked in Prof. Jooyeon Lee's New Industrial Convergence R&amp;D Lab on solar-panel telemetry and a microfluidic sweat sensor.</p>
 
@@ -40,16 +42,18 @@ ABOUT_HTML = """
 
 # (date, html). Newest first.
 NEWS = [
+    ("Nov 2026", 'Our perforation defect paper is under review at <b>NAMRC 55</b>, and an abstract on vision-language monitoring for micro- and nano-manufacturing was submitted to the <b>IISE Annual Conference 2027</b>. See <a href="publications/">publications</a>.'),
     ("Oct 2026", 'Leading the acoustic team on a DOE FIRE project, monitoring <a href="projects/lpbf-acoustics/">laser powder bed fusion builds with sound and video</a> to predict ductility and yield strength of each printed sample.'),
-    ("Sep 2026", "Started my second year at UW–Madison, now co-advised by Prof. Hantang Qin and Prof. Kaibo Liu. I'm also the reader/grader for ISyE 320 (Simulation and Probabilistic Modeling) this fall."),
+    ("Sep 2026", "Started my M.S. in Industrial &amp; Systems Engineering at UW–Madison, continuing in Prof. Hantang Qin's FEAP Lab. I'm also the reader/grader for ISyE 320 (Simulation and Probabilistic Modeling) this fall."),
     ("Sep 2026", "Co-Technical Lead for <b>NSF I-Corps Quantum+X</b>, interviewing people at Quantinuum, Microsoft Quantum, IonQ, and others about how quantum technology could support an LLM for fusion research."),
     ("Jun 2026", 'Our paper <a href="publications/">“Federated Learning-Based Regression Framework to Predict Printed Line Width in Electrohydrodynamic Inkjet Printing”</a> was presented at <b>NAMRC 54</b> (MSEC 2026) and published in <i>Manufacturing Letters</i>.'),
     ("Jun 2026", 'Our perforation defect detection work won <b>2nd Place</b> at the IEOM Senior Capstone Design Competition in Milwaukee, after placing <b>3rd of 33 teams</b> in the IISE QCRE Data Challenge.'),
     ("Jun 2026", 'Started a summer research internship at Purdue LAMM with Prof. Martin Jun, working on <a href="projects/ded-acoustics/">acoustic monitoring for directed energy deposition</a> and <a href="projects/svm-calibration/">surround-view camera calibration</a>. I also led Python labs for the KIAT Data Analytics Program.'),
     ("Jun 2026", "Co-Entrepreneurial Lead for <b>NSF I-Corps BOOST</b>, interviewing people in nuclear operations about how they manage knowledge."),
+    ("Apr 2026", "Presented my research proposal on federated learning for bandwidth-constrained remaining-useful-life prediction, from an independent study with Prof. Kaibo Liu (Jan–May 2026)."),
     ("Apr 2026", '<a href="https://github.com/joannemiki57/IncidentCopilot">Incident Copilot</a> won <b>1st Place</b> at the UW–Madison LikeLion Hackathon, and <a href="https://github.com/joannemiki57/Polaris">Polaris</a> was a <b>finalist</b> at the UW–Madison Cursor Hackathon.'),
     ("Apr 2026", "Presented <b>OraQ</b>, an AI oral cancer pre-screening app, with the LikeLion Data Science Team. I built the data pipeline and the backend."),
-    ("Sep 2025", "Started my M.S. in Industrial &amp; Systems Engineering at UW–Madison and joined Prof. Hantang Qin's FEAP Lab. Our team took <b>4th Prize</b> in the Plexus Challenge at the Engineering Makerthon."),
+    ("Sep 2025", "Came to UW–Madison as a visiting student in Industrial &amp; Systems Engineering and joined Prof. Hantang Qin's FEAP Lab. Our team took <b>4th Prize</b> in the Plexus Challenge at the Engineering Makerthon."),
     ("May 2025", "Presented “Bicycle Lift Installation Optimization based on Spatial Information” at the Korean Society of Systems Engineering."),
     ("Nov 2024", "Our microfluidic sweat-sensing patch won <b>2nd Prize</b> in the Witeck field-based technical problem-solving project."),
 ]
@@ -57,6 +61,38 @@ NEWS = [
 ME = ["J. Yun", "Junghyun Yun", "Joanne Yun"]
 
 PUBS = [
+    {
+        "key": "ouidadi2027perforation",
+        "year": "Under review",
+        "abbr": "NAMRC 55",
+        "abbr_class": "soft",
+        "thumb": "assets/img/projects/defect_flow.jpg",
+        "title": "Deep Learning-Based Perforation Defect Detection and Classification for Automated Industrial Inspection: An Industry Case Study",
+        "authors": ["Hasnaa Ouidadi", "Khawlah Alharbi", "Pengyu Zhang", "Joanne Yun", "Hantang Qin"],
+        "venue": "Under review, <em>55th SME North American Manufacturing Research Conference (NAMRC 55)</em>",
+        "date": "2027",
+        "award": "",
+        "abstract": "",
+        "links": [("Project", "projects/perforation-defects/")],
+        "bibtex": "",
+        "selected": False,
+    },
+    {
+        "key": "zhang2027vlm",
+        "year": "Under review",
+        "abbr": "IISE 2027",
+        "abbr_class": "soft",
+        "thumb": "",
+        "title": "An Online Vision-Language Monitoring and Advisory System for Micro- and Nano-Manufacturing",
+        "authors": ["Pengyu Zhang", "Hasnaa Ouidadi", "Joanne Yun", "Hantang Qin"],
+        "venue": "Abstract submitted, <em>IISE Annual Conference</em>",
+        "date": "2027",
+        "award": "",
+        "abstract": "",
+        "links": [],
+        "bibtex": "",
+        "selected": False,
+    },
     {
         "key": "zhang2026federated",
         "year": "2026",
@@ -104,22 +140,6 @@ PUBS = [
         "selected": True,
     },
     {
-        "key": "ouidadi2026perforation",
-        "year": "In preparation",
-        "abbr": "Manuscript",
-        "abbr_class": "soft",
-        "thumb": "assets/img/projects/defect_flow.jpg",
-        "title": "Deep Learning-Based Perforation Defect Detection and Classification for Automated Industrial Inspection: An Industry Case Study",
-        "authors": ["Hasnaa Ouidadi", "Khawlah Alharbi", "Pengyu Zhang", "Joanne Yun", "Hantang Qin"],
-        "venue": "In preparation",
-        "date": "",
-        "award": "",
-        "abstract": "",
-        "links": [("Project", "projects/perforation-defects/")],
-        "bibtex": "",
-        "selected": False,
-    },
-    {
         "key": "yun2025bicycle",
         "year": "2025",
         "abbr": "KSSE 2025",
@@ -156,7 +176,9 @@ RESEARCH = [
 <ul>
 <li><b>Layer segmentation from audio.</b> Acoustic equalization plus normalized cross-correlation (NCC) template matching on the recoater sound found <b>209 layers</b> in a 5-hour build. Earlier RMS and watchdog approaches produced 415 to 3,039 false layer boundaries on the same recording.</li>
 <li><b>Laser-off detection from video.</b> Keyframe sampling with Otsu-derived brightness thresholds recovers <b>95 laser-off intervals</b> from about 620,000 frames in roughly 2.5 minutes on a laptop, an independent check on the audio timeline.</li>
-<li><b>Part map.</b> A homography-based map that labels all 353 build-plate samples in chamber-camera frames, so each sound can be tied to the sample being printed (331 of 346 pooled detections matched to the reference grid so far).</li>
+<li><b>Part map.</b> A homography-based map that recovers <b>331 of 353</b> build-plate sample positions in chamber-camera frames (median error 1.05 px across 16 frames), so each sound can be tied to the sample being printed.</li>
+<li><b>Audio–video sync tool.</b> Packaged the synchronization into a tool and used it to split the build audio into part-level clips for <b>151 samples</b>.</li>
+<li><b>First acoustic baselines.</b> Acoustic features recover laser power at R² 0.96–0.97. A two-stage acoustic → process → density model reaches <b>R² 0.63</b>, against 0.33 for acoustic features alone.</li>
 </ul>
 
 <div class="figure"><img src="../../assets/img/projects/lpbf_template.jpg" alt="Equalized spectrogram of the recoater template"><figcaption>The recoater pass has a clear acoustic signature, which becomes a template for matching.</figcaption></div>
@@ -278,6 +300,12 @@ RESEARCH = [
 
 # Smaller projects: grid cards, no page of their own.
 BUILDS = [
+    {"title": "RTOS (Real to Sim)", "icon": "fa-solid fa-robot", "sub": "Co-founder &amp; COO · startup · Aug 2026 to present",
+     "text": "Simulates multi-vendor robot teams on a client's own factory floor before they buy. I built the industrial-engineering decision engine: time study, line balancing, human–robot allocation, and simulation-based screening that narrowed 1,219 robot-cell designs to 3.",
+     "tags": ["CP-SAT", "MILP", "SimPy"], "url": "https://rltosim.com"},
+    {"title": "Enveda CASMI 2026", "icon": "fa-solid fa-flask", "sub": "Kaggle · 5,300+ teams · Sep 2026 to present",
+     "text": "Identifying molecules from MS/MS mass spectra. I built a spectrum-to-structure retrieval pipeline, owned the team's DreaMS branch, and audited the reproducibility of every external model we used.",
+     "tags": ["LightGBM", "ranking", "PyTorch"], "url": ""},
     {"title": "Incident Copilot", "img": "assets/img/projects/build_incident.jpg", "icon": "fa-solid fa-life-ring", "sub": "1st Place · UW–Madison LikeLion Hackathon 2026",
      "text": "An incident-response console that walks raw logs through triage, root-cause hypotheses, evidence, and an action plan with human-in-the-loop gates. Built in a day by a team of three.",
      "tags": ["Next.js", "FastAPI", "SSE"], "url": "https://github.com/joannemiki57/IncidentCopilot"},
@@ -317,14 +345,19 @@ MADISON = [
 # Short version of the skills list, shown as tags on the about page.
 SKILLS = [
     ("Languages", ["Python", "C++", "R", "MATLAB", "C#"]),
-    ("ML &amp; vision", ["PyTorch", "TensorFlow", "Detectron2", "OpenCV", "scikit-learn", "XGBoost", "Faster R-CNN", "YOLO"]),
+    ("ML &amp; vision", ["PyTorch", "TensorFlow", "Detectron2", "OpenCV", "scikit-learn", "XGBoost", "LightGBM", "LoRA", "Faster R-CNN", "YOLO"]),
     ("Signal processing", ["FFT", "STFT / spectrograms", "acoustic equalization", "template matching"]),
+    ("Optimization", ["MILP / CP-SAT", "Pareto / SMAA", "discrete-event simulation"]),
     ("Tools", ["pandas", "Git", "CMake", "FastAPI", "QGIS", "Unity"]),
 ]
 
+# Keep in sync with the PDF CV.
 CV_SECTIONS = [
+    ("Research Interests", [
+        ("Multimodal data analysis, machine learning, in-situ process monitoring, federated learning", "", "", []),
+    ]),
     ("Education", [
-        ("University of Wisconsin–Madison", "Sep 2025 – present", "M.S., Industrial &amp; Systems Engineering · Advisors: Prof. Hantang Qin and Prof. Kaibo Liu · GPA 3.9/4.0", []),
+        ("University of Wisconsin–Madison", "Sep 2026 – May 2027 (expected)", "M.S., Industrial &amp; Systems Engineering · Advisor: Prof. Hantang Qin · GPA 3.9/4.0 · Visiting International Student, Industrial &amp; Systems Engineering, Sep 2025 – May 2026", []),
         ("Ajou University, Suwon, South Korea", "Mar 2023 – Aug 2026", "B.S., Industrial Engineering · Advisor: Prof. Jooyeon Lee · GPA 4.26/4.5 · Class rank 1/139", []),
     ]),
     ("Publications", [
@@ -332,31 +365,32 @@ CV_SECTIONS = [
          "P. Zhang, <b>J. Yun</b>, and H. Qin · <i>Manufacturing Letters</i> 49, NAMRC 54 · <a href=\"https://doi.org/10.1016/j.mfglet.2026.08.036\">DOI</a>", []),
         ("End-to-End Computer Vision Pipeline for Perforation Defect Detection and Classification in Industrial Imaging", "Jun 2026",
          "<b>J. Yun</b>, H. Ouidadi, K. Alharbi, P. Zhang, and H. Qin · IEOM Society International", []),
-        ("Deep Learning-Based Perforation Defect Detection and Classification for Automated Industrial Inspection: An Industry Case Study", "In preparation",
-         "H. Ouidadi, K. Alharbi, P. Zhang, <b>J. Yun</b>, and H. Qin", []),
+        ("Deep Learning-Based Perforation Defect Detection and Classification for Automated Industrial Inspection: An Industry Case Study", "Under review",
+         "H. Ouidadi, K. Alharbi, P. Zhang, <b>J. Yun</b>, and H. Qin · NAMRC 55, 2027", []),
+        ("An Online Vision-Language Monitoring and Advisory System for Micro- and Nano-Manufacturing", "Abstract submitted",
+         "P. Zhang, H. Ouidadi, <b>J. Yun</b>, and H. Qin · IISE Annual Conference, 2027", []),
     ]),
     ("Research Experience", [
-        ("FEAP Lab, UW–Madison", "Sep 2026 – present", "Team Lead, Multimodal Process Monitoring for Metal AM",
-         ["Lead the acoustic team on a DOE FIRE project: audio and video monitoring of LPBF builds to predict per-sample ductility and yield strength",
-          "Segmented 209 layers from 5 hours of build audio with acoustic equalization and NCC template matching",
-          "Video laser-off detector that recovers 95 laser-off intervals from about 620k frames",
-          "Homography-based part map that labels the 353 build-plate samples in chamber-camera frames"]),
-        ("Laboratory for Advanced Multiscale Manufacturing, Purdue University", "Jun – Aug 2026", "Research Intern · Prof. Martin Jun",
-         ["Acoustic monitoring for directed energy deposition: synced audio, video, and machine logs (0.17 s residual) and found a laser-linked 7–8.5 kHz burst over 45 laser-on edges",
-          "Targetless surround-view camera calibration with Miratek and Hyundai Translead: median roll error of 1.21–1.68° across 232 camera views"]),
-        ("FEAP Lab, UW–Madison", "Sep 2025 – May 2026", "Research Assistant · Prof. Hantang Qin",
-         ["Federated learning for EHD inkjet printing: per-client XGBoost baselines for 8 printing systems (1,185 runs)",
-          "Industrial surface defect detection: pseudo-labeler with 93.4% region localization and a Faster R-CNN detector at AP50 96.8%"]),
-        ("New Industrial Convergence R&amp;D Lab, Ajou University", "Mar 2023 – Aug 2025", "Undergraduate Research Intern · Prof. Jooyeon Lee",
+        ("FEAP Lab, UW–Madison", "Sep 2026 – present", "Team Lead, Multimodal Process Monitoring for Metal AM · Advisor: Prof. Hantang Qin",
+         ["Lead the FIRE MBSE TG3 acoustic team: audio and video monitoring of LPBF builds to predict per-sample ductility and yield strength (DOE FIRE project)",
+          "Segmented 209 layers from 5 hours of build audio with acoustic equalization and NCC template matching, replacing approaches that produced 415–3,039 false layer boundaries",
+          "Video laser-off detector that recovers 95 laser-off intervals from about 620k frames in about 2.5 minutes on a laptop",
+          "Homography-based part map that recovers 331 of 353 build-plate sample positions (median error 1.05 px across 16 frames)",
+          "Audio–video synchronization tool, used to split the build audio into part-level clips for 151 samples",
+          "First acoustic baselines: laser power recovered at R² 0.96–0.97; a two-stage acoustic → process → density model reaches R² 0.63 vs. 0.33 for acoustic-only"]),
+        ("Laboratory for Advanced Multiscale Manufacturing, Purdue University", "Jun – Aug 2026", "Research Intern · Advisor: Prof. Martin Jun",
+         ["Acoustic monitoring for directed energy deposition: synced audio, video, and machine logs (0.17 s residual) and recovered a laser-linked 7–8.5 kHz burst over 45 laser-on edges (≈6σ)",
+          "Targetless surround-view camera calibration with Miratek and Hyundai Translead: median roll error of 1.21–1.68° across 232 camera views; worst case cut from 26.8° to 19.2°"]),
+        ("Department of Industrial &amp; Systems Engineering, UW–Madison", "Jan – May 2026", "Independent Study · Advisor: Prof. Kaibo Liu · Mentor: Ying Fu",
+         ["Federated learning for bandwidth-constrained remaining-useful-life prediction: extended dynamic sensor selection with a LoRA-based learning channel on a GRU backbone and staleness-aware asynchronous aggregation",
+          "Federated benchmarks on NASA C-MAPSS (FD001–FD004): FedAvg, FedProx, two-tier hierarchical FL, and a LoRA rank ablation"]),
+        ("FEAP Lab, UW–Madison", "Sep 2025 – May 2026", "Research Assistant · Advisor: Prof. Hantang Qin",
+         ["Federated learning for EHD inkjet printing: per-client XGBoost baselines for 8 printing systems (1,185 runs); the best single-client model (R² 0.983 at home) falls below zero R² on 4 of 8 clients",
+          "Industrial surface defect detection: pseudo-labeler with 93.4% region localization, 900 of 25,000 images selected for labeling, and a Faster R-CNN detector at AP50 96.8% (3rd of 33 teams, IISE QCRE Data Challenge)"]),
+        ("New Industrial Convergence R&amp;D Lab, Ajou University", "Mar 2023 – Aug 2025", "Undergraduate Research Intern · Advisor: Prof. Jooyeon Lee",
          ["Anomaly detection on solar-panel power-electronics telemetry with Korea Midland Power (KOMIPO) and Kernelog",
           "API-based data acquisition for solar-panel digital twins",
           "Led a microfluidic sweat-extraction patch with image-based pH sensing"]),
-    ]),
-    ("Teaching", [
-        ("Reader/Grader, ISyE 320: Simulation and Probabilistic Modeling", "Sep 2026 – present", "UW–Madison · Prof. Qiaomin Xie · sole grader for 80+ students", []),
-        ("Teaching Assistant, KIAT Data Analytics Program", "Jun – Aug 2026", "Purdue · Prof. Martin Jun · Python labs for 90+ students across 20 sessions", []),
-        ("Teaching Assistant, Future Industrial Revolution and Technology Start-Up", "Jul 2025", "Ajou University · Prof. Jinam Wang · final presentation event for 50+ students", []),
-        ("Education Volunteer, Hyundai Motor Group H-Jump School", "Mar – Nov 2024", "100+ hours teaching English and math to high school students", []),
     ]),
     ("Honors &amp; Awards", [
         ("2nd Place, IEOM Senior Capstone Design Competition", "2026", "", []),
@@ -371,8 +405,22 @@ CV_SECTIONS = [
         ("1st Place, 10th Ajou Hidden Champion Contest", "Aug 2023", "", []),
     ]),
     ("Entrepreneurship", [
+        ("Co-Founder &amp; COO, RTOS (Real to Sim)", "Aug 2026 – present", "Robotics-deployment startup. Built the industrial-engineering decision engine (time study, AHP/TOPSIS, CP-SAT line balancing, human–robot allocation MILP, SimPy DES and SMAA-2 screening) that narrowed 1,219 robot-cell designs to 3 options in 42 s", []),
         ("Co-Technical Lead, NSF I-Corps Quantum+X", "Sep – Oct 2026", "Interviews with quantum-industry leaders on how quantum technology could support a RAG-based LLM for fusion research", []),
         ("Co-Entrepreneurial Lead, NSF I-Corps BOOST, Great Lakes Regional Hub", "Jun – Aug 2026", "Customer discovery with nuclear-industry practitioners on how operational knowledge is captured and passed on. 50+ interviews across the two programs.", []),
+    ]),
+    ("Teaching", [
+        ("Reader/Grader, ISyE 320: Simulation and Probabilistic Modeling", "Sep 2026 – present", "UW–Madison · Prof. Qiaomin Xie · sole grader for 80+ students", []),
+        ("Teaching Assistant, KIAT Data Analytics Program", "Jun – Aug 2026", "Purdue · Prof. Martin Jun · Python labs for 90+ students across 20 sessions", []),
+        ("Teaching Assistant, Future Industrial Revolution and Technology Start-Up", "Jul 2025", "Ajou University · Prof. Jinam Wang · final presentation event for 50+ students", []),
+    ]),
+    ("Projects", [
+        ("Enveda CASMI 2026 (Kaggle), molecule ID from mass spectra", "Sep 2026 – present", "MS/MS-to-structure retrieval pipeline; owned the team's DreaMS branch · 5,300+ teams", []),
+        ("Polaris: MindGraph · Finalist, Cursor Hackathon", "Mar – Apr 2026", "Literature-grounded knowledge graphs from OpenAlex retrieval and Gemini extraction", []),
+        ("Incident Copilot · 1st Place, UW–Madison LikeLion Hackathon", "Apr 2026", "AI incident-response console with human-in-the-loop safety gates, built in one day", []),
+        ("OraQ: AI-Based Oral Cancer Screening", "Jan – Apr 2026", "Oral-image dataset and the full FastAPI backend for a mobile screening service", []),
+        ("Raspberry Pi PCB Defect Detector · 4th Place, Plexus Challenge", "Sep 2025", "Component-reference matching for missing or misplaced parts", []),
+        ("Aircraft Engine Fault Detection (PHM 2024 data)", "Sep – Dec 2024", "X̄-R and X̄-S control charts and a random forest model", []),
     ]),
     ("Leadership &amp; Service", [
         ("Public Relations Manager and Data Science Team Member, LikeLion US at UW–Madison", "Jan 2026 – present", "", []),
@@ -382,7 +430,8 @@ CV_SECTIONS = [
     ("Skills", [
         ("Programming", "", "Python, R, C++, MATLAB, C#", []),
         ("Frameworks", "", "PyTorch, TensorFlow, Detectron2, OpenCV, scikit-learn, pandas, Matplotlib", []),
-        ("Machine learning", "", "CNNs (YOLO, Faster R-CNN), RNNs and LSTMs, encoder–decoder models, SVM, XGBoost", []),
+        ("Machine learning", "", "CNNs (YOLO, Faster R-CNN), RNN/LSTM/GRU, encoder–decoder models, LoRA, XGBoost, LightGBM", []),
+        ("Optimization", "", "MILP / CP-SAT (OR-Tools), Pareto/SMAA, discrete-event simulation (SimPy, Arena)", []),
         ("Signal processing", "", "FFT, STFT and spectrograms, acoustic equalization, template matching (NCC)", []),
         ("Tools", "", "Git, CMake, FastAPI, QGIS, Unity", []),
     ]),
@@ -418,7 +467,7 @@ def page(title, active, p, body, description="", path="", head_extra=""):
         f'<a class="navbar-brand" href="{p}"><span class="first">{SITE["first"]}</span> {SITE["last"]}</a>'
     )
     full_title = f"{SITE['first']} {SITE['last']}" if active == "about" else f"{title} | {SITE['first']} {SITE['last']}"
-    desc = description or "Joanne Yun: M.S. student in Industrial & Systems Engineering at UW–Madison working on machine learning for manufacturing and acoustic process monitoring."
+    desc = description or "Joanne Yun: M.S. student in Industrial & Systems Engineering at UW–Madison (May 2027) working on machine learning for manufacturing and acoustic process monitoring. Applying to Ph.D. programs for Fall 2027."
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -687,7 +736,7 @@ def build_cv():
         secs.append(f'<section class="cv-section"><h2>{name}</h2>{"".join(rows)}</section>')
     body = f"""
 <div class="cv-head">
-<div class="post-header"><h1 class="post-title">cv</h1><p class="post-description">Last updated October 2026.</p></div>
+<div class="post-header"><h1 class="post-title">cv</h1><p class="post-description">Last updated {SITE['updated']}. The PDF is the full version.</p></div>
 <a class="pdf-btn" href="{p}{SITE['cv_pdf']}" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf"></i> PDF</a>
 </div>
 <object class="pdf-frame" data="{p}{SITE['cv_pdf']}#view=FitH" type="application/pdf">
