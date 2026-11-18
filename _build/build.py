@@ -62,6 +62,22 @@ ME = ["J. Yun", "Junghyun Yun", "Joanne Yun"]
 
 PUBS = [
     {
+        "key": "yun2027lpbf",
+        "year": "In preparation",
+        "abbr": "Manuscript",
+        "abbr_class": "soft",
+        "thumb": "assets/img/projects/lpbf_spectrogram.jpg",
+        "title": "Material-Aware Acoustic Monitoring for Density Prediction in Laser Powder Bed Fusion",
+        "authors": ["Joanne Yun", "Hasnaa Ouidadi", "Z. D'Amico", "A. Wadhwa", "Hantang Qin"],
+        "venue": "In preparation",
+        "date": "",
+        "award": "",
+        "abstract": "",
+        "links": [("Project", "projects/lpbf-acoustics/")],
+        "bibtex": "",
+        "selected": False,
+    },
+    {
         "key": "ouidadi2027perforation",
         "year": "Under review",
         "abbr": "NAMRC 55",
@@ -369,6 +385,8 @@ CV_SECTIONS = [
          "H. Ouidadi, K. Alharbi, P. Zhang, <b>J. Yun</b>, and H. Qin · NAMRC 55, 2027", []),
         ("An Online Vision-Language Monitoring and Advisory System for Micro- and Nano-Manufacturing", "Abstract submitted",
          "P. Zhang, H. Ouidadi, <b>J. Yun</b>, and H. Qin · IISE Annual Conference, 2027", []),
+        ("Material-Aware Acoustic Monitoring for Density Prediction in Laser Powder Bed Fusion", "In preparation",
+         "<b>J. Yun</b>, H. Ouidadi, Z. D'Amico, A. Wadhwa, and H. Qin", []),
     ]),
     ("Research Experience", [
         ("FEAP Lab, UW–Madison", "Sep 2026 – present", "Team Lead, Multimodal Process Monitoring for Metal AM · Advisor: Prof. Hantang Qin",
