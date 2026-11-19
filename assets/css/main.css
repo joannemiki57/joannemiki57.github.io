@@ -598,3 +598,5 @@ footer a { color: #ff8a8e; }
 @media (max-width: 540px) { .jg-era { font-size: 18px; } }
 @media (max-width: 540px) { .jg-minor { display: none; } }
 .jg-text:empty { display: none; }
+.jg-link { display: inline-flex; align-items: center; gap: 6px; margin: 0 0 10px; font-size: 0.9rem; }
+.jg-link[hidden] { display: none; }

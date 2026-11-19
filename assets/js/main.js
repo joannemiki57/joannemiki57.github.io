@@ -61,6 +61,9 @@
         el(".jg-kind").textContent = d.kind;
         el(".jg-title").textContent = d.title;
         el(".jg-text").textContent = d.text;
+        var a = el(".jg-link");
+        if (d.link) { a.href = d.link; a.querySelector("span").textContent = d.linkLabel; a.hidden = false; }
+        else { a.hidden = true; a.removeAttribute("href"); }
         el(".jg-count").textContent = (cur + 1) + " / " + data.length;
         card.classList.toggle("twist", d.kind === "plot twist");
         card.classList.toggle("turn", d.kind === "turning point");

@@ -360,7 +360,7 @@ JOURNEY = [
      '', 2.6),
     (2009.0, 'm', 'Age 5', 'Korea', 'Gifted-education program',
      'I joined a gifted-education program in Korea when I was five.', 3.4),
-    (2010.3, 'm', 'Around 2010', 'United States', 'Violin, UCLA honor orchestra',
+    (2012.2, 'm', '2012', 'Los Angeles, CA', 'Violin, UCLA honor orchestra',
      'I played in the front row of the violin section, and I was on TV!', 4.2),
     (2013.08, 'm', 'Jan 2013', 'Seoul, Korea', 'Silver, national math assessment',
      'I won silver in the grade 2 math division of a national English and math test.', 4.0),
@@ -410,6 +410,9 @@ JOURNEY = [
      '', 14.0),
 ]
 
+JOURNEY_LINKS = {
+    "Violin, UCLA honor orchestra": ("Watch the video", "https://www.youtube.com/watch?v=-GKmjYU99sQ&t=1438s"),
+}
 YEAR_TICKS = [2004, 2014, 2019, 2023, 2025, 2026, 2027]
 SPLIT = 2023.0          # left of this the x axis is squeezed, right of it zoomed in
 
@@ -473,7 +476,9 @@ def journey_html():
         }[kind]
         pts.append(f'<g class="jg-pt" data-i="{i}" aria-label="{esc(dlab + ": " + title)}">'
                    f'<circle class="jg-hit" cx="{x:.1f}" cy="{y:.1f}" r="11"/>{shape}</g>')
+        link = JOURNEY_LINKS.get(title)
         data.append({"date": dlab, "place": place, "title": title, "text": text,
+                     "link": link[1] if link else "", "linkLabel": link[0] if link else "",
                      "kind": {"m": "milestone", "t": "plot twist", "u": "turning point", "n": "next"}[kind]})
 
     years = "".join(
@@ -496,6 +501,7 @@ def journey_html():
 <div class="jg-meta"><span class="jg-date"></span><span class="jg-kind"></span></div>
 <h3 class="jg-title"></h3>
 <p class="jg-text"></p>
+<a class="jg-link" href="#" target="_blank" rel="noopener" hidden><i class="fa-brands fa-youtube"></i> <span></span></a>
 <div class="jg-nav"><button class="jg-prev" aria-label="Previous point"><i class="fa-solid fa-chevron-left"></i></button><span class="jg-count"></span><button class="jg-next-btn" aria-label="Next point"><i class="fa-solid fa-chevron-right"></i></button><span class="jg-legend">{legend}</span></div>
 </div>
 <script type="application/json" class="jg-data">{json.dumps(data, ensure_ascii=False)}</script>
