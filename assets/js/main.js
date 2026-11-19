@@ -65,7 +65,8 @@
         if (d.link) {
           a.href = d.link;
           a.querySelector("span").textContent = d.linkLabel;
-          a.querySelector("i").className = d.link.indexOf("linkedin.com") > -1 ? "fa-brands fa-linkedin" : "fa-brands fa-youtube";
+          a.querySelector("i").className = d.link.indexOf("linkedin.com") > -1 ? "fa-brands fa-linkedin"
+            : d.link.indexOf("youtube.com") > -1 ? "fa-brands fa-youtube" : "fa-solid fa-globe";
           a.hidden = false;
         }
         else { a.hidden = true; a.removeAttribute("href"); }
