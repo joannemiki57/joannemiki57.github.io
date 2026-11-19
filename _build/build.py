@@ -412,6 +412,7 @@ JOURNEY = [
 
 JOURNEY_LINKS = {
     "Violin, UCLA honor orchestra": ("Watch the video", "https://www.youtube.com/watch?v=-GKmjYU99sQ&t=1438s"),
+    "2nd Place, MOTIR field problem-solving project": ("Watch the video", "https://www.youtube.com/watch?v=9Ye599XDxEA&t=214s"),
 }
 YEAR_TICKS = [2004, 2014, 2019, 2023, 2025, 2026, 2027]
 SPLIT = 2023.0          # left of this the x axis is squeezed, right of it zoomed in
