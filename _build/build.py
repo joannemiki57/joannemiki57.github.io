@@ -515,6 +515,15 @@ def journey_html():
 </div>"""
 
 
+# Coursework from the CV education section, shown as tags on the about page.
+COURSEWORK = [
+    ("UW–Madison", ["Facilities Planning", "Signals and Systems",
+                    "Industrial Data Analysis", "Simulation &amp; Probabilistic Modeling",
+                    "Decision Analysis"]),
+    ("Ajou University", ["Quality Engineering", "Reliability Engineering", "Manufacturing Engineering",
+                         "IE Machine Learning"]),
+]
+
 # Short version of the skills list, shown as tags on the about page.
 SKILLS = [
     ("Languages", ["Python", "C++", "R", "MATLAB", "C#"]),
@@ -731,9 +740,9 @@ def pub_item(pub, p):
 </div></div></li>"""
 
 
-def skills_html():
+def skills_html(groups=None):
     rows = []
-    for label, tags in SKILLS:
+    for label, tags in (groups or SKILLS):
         chips = "".join(f'<span class="tag">{t}</span>' for t in tags)
         rows.append(f'<div class="skill-row"><span class="skill-label">{label}</span><div class="card-tags">{chips}</div></div>')
     return f'<div class="skills">{"".join(rows)}</div>'
@@ -778,7 +787,6 @@ def build_sitemap():
 
 def build_about():
     p = ""
-    selected = "\n".join(pub_item(x, p) for x in PUBS if x["selected"])
     body = f"""
 <div class="post-header">
 <h1 class="post-title"><span class="first">{SITE['first']}</span> {SITE['last']}</h1>
@@ -792,18 +800,15 @@ def build_about():
 <div class="about-text">{ABOUT_HTML}</div>
 </article>
 
-<h2 class="section-title"><a href="news/">news</a></h2>
-{news_table(NEWS[:5])}
-
-<h2 class="section-title"><a href="publications/">selected publications</a></h2>
-<ol class="bibliography">{selected}</ol>
+<h2 class="section-title">My Life Graph</h2>
+<p class="post-description">Tap a point or use the arrows.</p>
+{journey_html()}
 
 <h2 class="section-title">skills</h2>
 {skills_html()}
 
-<h2 class="section-title">My Life Graph</h2>
-<p class="post-description">Tap a point or use the arrows.</p>
-{journey_html()}
+<h2 class="section-title">selected coursework</h2>
+{skills_html(COURSEWORK)}
 """
     write("index.html", page("about", "about", p, body, head_extra=person_schema()))
 
