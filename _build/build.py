@@ -351,12 +351,156 @@ BUILDS = [
      "tags": ["Swift", "SwiftUI"], "url": "https://github.com/joannemiki57/Trips"},
 ]
 
-MADISON = [
-    ("assets/img/madison/capitol.jpg", "The Capitol"),
-    ("assets/img/madison/mendota.jpg", "Lake Mendota"),
-    ("assets/img/madison/state-street.jpg", "State Street"),
-    ("assets/img/madison/game-day.jpg", "Game day"),
+# Life graph on the about page. Height = how much I was enjoying and growing in learning (my own scale, 0–10).
+# College levels rise by a constant ratio per point (1.5 -> 9.4), so the last two years read as exponential.
+# kind: "m" milestone, "t" plot twist, "u" turning point, "n" next.
+# (sort date, kind, date label, place, title, text, level)
+JOURNEY = [
+    (2004.0, 'm', '2004', 'Vancouver, Canada', 'Born in Vancouver, Canada',
+     '', 2.6),
+    (2009.0, 'm', 'Age 5', 'Korea', 'Gifted-education program',
+     'I joined a gifted-education program in Korea when I was five.', 3.4),
+    (2010.3, 'm', 'Around 2010', 'United States', 'Violin, UCLA honor orchestra',
+     'I played in the front row of the violin section, and I was on TV!', 4.2),
+    (2013.08, 'm', 'Jan 2013', 'Seoul, Korea', 'Silver, national math assessment',
+     'I won silver in the grade 2 math division of a national English and math test.', 4.0),
+    (2013.9, 'm', 'Nov 2013', 'Seoul, Korea', 'Gold, National Creative Mathematics Competition',
+     '', 4.6),
+    (2014.6, 'm', '2014', 'China', 'Gold, International Youth Mathematics Invitation',
+     'This was part of the Shiing-Shen Chern Mathematics Week in China.', 5.0),
+    (2018.3, 't', 'Middle school', 'Seoul, Korea', 'Korean Mathematical Olympiad',
+     "I prepared for the KMO, but it didn't work out.", 3.0),
+    (2019.4, 't', 'Middle school', 'Seoul, Korea', 'Gave up on a gifted science high school',
+     '', 2.1),
+    (2021.0, 't', 'High school', 'Daechi-dong, Seoul', 'Cram-school years in Daechi-dong',
+     'I studied hard but lost sight of why I was studying.', 1.2),
+    (2022.87, 'u', 'Nov 2022', 'Seoul, Korea', 'Turning point',
+     'After the college entrance exam, I started thinking about what I really wanted to do.', 0.7),
+    (2023.17, 'm', 'Mar 2023', 'Suwon, Korea', 'B.S. in Industrial Engineering, Ajou University',
+     "I joined Prof. Jooyeon Lee's lab.", 1.5),
+    (2023.6, 'm', 'Aug 2023', 'Suwon, Korea', '1st Place, Ajou Hidden Champion Contest',
+     '', 1.71),
+    (2024.85, 'm', 'Nov 2024', 'Suwon, Korea', '2nd Place, MOTIR field problem-solving project',
+     'I led our team in building a microfluidic patch that reads sweat pH.', 1.95),
+    (2025.35, 'm', 'May 2025', 'Korea', 'First conference talk, KSSE',
+     'I presented a study on where to place bicycle lifts using spatial data.', 2.22),
+    (2025.7, 'm', 'Sep 2025', 'Madison, WI', 'Joined FEAP Lab, UW–Madison',
+     'I came to UW–Madison as a visiting student and started working with Prof. Hantang Qin.', 2.53),
+    (2026.0, 'm', 'Jan 2026', 'Madison, WI', 'Independent study with Prof. Kaibo Liu',
+     'I worked on federated learning for remaining-useful-life prediction.', 2.89),
+    (2026.25, 'm', 'Apr 2026', 'Madison, WI', '1st Place, UW–Madison LikeLion Hackathon',
+     'Our team built Incident Copilot, an AI incident-response tool, in one day.', 3.29),
+    (2026.35, 'm', 'May 2026', 'Madison, WI', '3rd of 33, IISE QCRE Data Challenge',
+     'Our defect detection model reached AP50 96.8, and my rebuilt pipeline later reached 97.6.', 3.75),
+    (2026.42, 'm', 'Jun 2026', 'Milwaukee → West Lafayette', 'First papers at NAMRC 54 and IEOM',
+     'We also won 2nd place at the IEOM capstone competition, and I started a summer research internship at Purdue with Prof. Martin Jun.', 4.28),
+    (2026.5, 't', 'Summer 2026', 'West Lafayette, IN', 'Laser invisible in band energy',
+     'I found a 7–8.5 kHz signal that appears only when the laser turns on.', 3.95),
+    (2026.6, 'm', 'Aug 2026', 'Madison, WI', 'B.S., ranked 1st of 139',
+     'I also co-founded RTOS, a robot deployment startup.', 5.56),
+    (2026.68, 'm', 'Sep 2026', 'Madison, WI', 'Started M.S. and led the FIRE acoustic team',
+     'We monitor laser powder bed fusion builds with audio and video for a DOE project.', 6.34),
+    (2026.76, 't', 'Oct 2026', 'Madison, WI', '415–3,039 false layer boundaries',
+     'Template matching on the recoater sound found the correct 209 layers.', 6.0),
+    (2026.82, 't', 'Fall 2026', 'Madison, WI', 'Acoustic-only density model at R² 0.33',
+     'Adding process parameters as a middle step raised it to R² 0.63.', 6.6),
+    (2026.88, 'm', 'Nov 2026', 'Madison, WI', 'NAMRC 55 and IISE 2027 submissions',
+     "I'm applying to Ph.D. programs for Fall 2027.", 9.4),
+    (2027.67, 'n', 'Fall 2027', '?', 'Ph.D., Fall 2027',
+     '', 14.0),
 ]
+
+YEAR_TICKS = [2004, 2014, 2019, 2023, 2025, 2026, 2027]
+SPLIT = 2023.0          # left of this the x axis is squeezed, right of it zoomed in
+
+
+def _hermite_path(xs, ys):
+    """Monotone cubic (Fritsch–Carlson) through the points; returns an SVG path."""
+    n = len(xs)
+    d = [(ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]) for i in range(n - 1)]
+    m = [d[0]] + [0.0 if d[i - 1] * d[i] <= 0 else (d[i - 1] + d[i]) / 2 for i in range(1, n - 1)] + [d[-1]]
+    for i in range(n - 1):
+        if d[i] == 0:
+            m[i] = m[i + 1] = 0.0
+            continue
+        a, b = m[i] / d[i], m[i + 1] / d[i]
+        s = a * a + b * b
+        if s > 9:
+            t = 3 / s ** 0.5
+            m[i], m[i + 1] = t * a * d[i], t * b * d[i]
+    path = [f"M{xs[0]:.1f},{ys[0]:.1f}"]
+    for i in range(n - 1):
+        h = xs[i + 1] - xs[i]
+        path.append(f"C{xs[i] + h / 3:.1f},{ys[i] + m[i] * h / 3:.1f} {xs[i + 1] - h / 3:.1f},{ys[i + 1] - m[i + 1] * h / 3:.1f} {xs[i + 1]:.1f},{ys[i + 1]:.1f}")
+    return " ".join(path)
+
+
+def journey_html():
+    W, H = 800, 292
+    X0, XS, X1 = 30, 238, 770          # left edge, era split, right edge
+    Y0, Y1 = 262, 12                   # baseline and top (the ? node sits at the top)
+    early = [j for j in JOURNEY if j[0] < SPLIT]
+    late = [j for j in JOURNEY if j[0] >= SPLIT]
+    # Points are spaced evenly within each era, so dense years stay readable.
+    knots = [(j[0], X0 + 6 + i * (XS - 26 - X0) / (len(early) - 1)) for i, j in enumerate(early)]
+    knots += [(j[0], XS + 22 + i * (X1 - 12 - XS - 22) / (len(late) - 1)) for i, j in enumerate(late)]
+
+    def fx(t):
+        if t <= knots[0][0]:
+            return knots[0][1]
+        for (t0, x0), (t1, x1) in zip(knots, knots[1:]):
+            if t0 <= t <= t1:
+                return x0 + (x1 - x0) * (t - t0) / (t1 - t0)
+        return X1
+    fy = lambda lv: Y0 - 10 - lv * (Y0 - 10 - Y1) / 14
+
+    solid = [j for j in JOURNEY if j[1] != "n"]
+    xs = [fx(j[0]) for j in solid]
+    ys = [fy(j[6]) for j in solid]
+    path = _hermite_path(xs, ys)
+    area = path + f" L{xs[-1]:.1f},{Y0} L{xs[0]:.1f},{Y0} Z"
+    nxt = JOURNEY[-1]
+    nx, ny = fx(nxt[0]), fy(nxt[6])
+
+    pts, data = [], []
+    for i, (t, kind, dlab, place, title, text, lv) in enumerate(JOURNEY):
+        x, y = fx(t), fy(lv)
+        shape = {
+            "m": f'<circle class="jg-dot" cx="{x:.1f}" cy="{y:.1f}" r="5"/>',
+            "t": f'<polygon class="jg-dot jg-twist" points="{x:.1f},{y - 6.5:.1f} {x + 6.5:.1f},{y:.1f} {x:.1f},{y + 6.5:.1f} {x - 6.5:.1f},{y:.1f}"/>',
+            "u": f'<circle class="jg-ring" cx="{x:.1f}" cy="{y:.1f}" r="11"/><circle class="jg-dot jg-turn" cx="{x:.1f}" cy="{y:.1f}" r="6"/>',
+            "n": f'<circle class="jg-dot jg-next" cx="{x:.1f}" cy="{y:.1f}" r="9"/><text class="jg-q" x="{x:.1f}" y="{y + 4.5:.1f}">?</text>',
+        }[kind]
+        pts.append(f'<g class="jg-pt" data-i="{i}" aria-label="{esc(dlab + ": " + title)}">'
+                   f'<circle class="jg-hit" cx="{x:.1f}" cy="{y:.1f}" r="11"/>{shape}</g>')
+        data.append({"date": dlab, "place": place, "title": title, "text": text,
+                     "kind": {"m": "milestone", "t": "plot twist", "u": "turning point", "n": "next"}[kind]})
+
+    years = "".join(
+        f'<line class="jg-tick" x1="{fx(y):.1f}" x2="{fx(y):.1f}" y1="{Y0}" y2="{Y0 + 6}"/>'
+        f'<text class="jg-year{' jg-minor' if y == 2019 else ''}" x="{fx(y):.1f}" y="{Y0 + 22}">{y}</text>' for y in YEAR_TICKS)
+    svg = f"""<svg class="jg-svg" viewBox="0 0 {W} {H}" role="group" aria-label="Life graph, 2004 to 2027">
+<path class="jg-area" d="{area}"/>
+<path class="jg-line" d="{path}"/>
+<path class="jg-future" d="M{xs[-1]:.1f},{ys[-1]:.1f} Q{nx - 6:.1f},{ys[-1]:.1f} {nx:.1f},{ny:.1f}"/>
+<line class="jg-axis" x1="{X0}" x2="{X1}" y1="{Y0}" y2="{Y0}"/>
+{years}
+{''.join(pts)}
+</svg>"""
+    legend = ('<span class="jg-key"><i class="jg-k-m"></i>milestone</span>'
+              '<span class="jg-key"><i class="jg-k-t"></i>plot twist</span>'
+              '<span class="jg-key"><i class="jg-k-u"></i>turning point</span>')
+    return f"""<div class="journey" data-start="{len(JOURNEY) - 2}">
+{svg}
+<div class="jg-card" aria-live="polite">
+<div class="jg-meta"><span class="jg-date"></span><span class="jg-kind"></span></div>
+<h3 class="jg-title"></h3>
+<p class="jg-text"></p>
+<div class="jg-nav"><button class="jg-prev" aria-label="Previous point"><i class="fa-solid fa-chevron-left"></i></button><span class="jg-count"></span><button class="jg-next-btn" aria-label="Next point"><i class="fa-solid fa-chevron-right"></i></button><span class="jg-legend">{legend}</span></div>
+</div>
+<script type="application/json" class="jg-data">{json.dumps(data, ensure_ascii=False)}</script>
+</div>"""
+
 
 # Short version of the skills list, shown as tags on the about page.
 SKILLS = [
@@ -621,9 +765,6 @@ def build_sitemap():
 def build_about():
     p = ""
     selected = "\n".join(pub_item(x, p) for x in PUBS if x["selected"])
-    gallery = "\n".join(
-        f'<figure><img src="{src}" alt="{cap}" loading="lazy"><figcaption>{cap}</figcaption></figure>' for src, cap in MADISON
-    )
     body = f"""
 <div class="post-header">
 <h1 class="post-title"><span class="first">{SITE['first']}</span> {SITE['last']}</h1>
@@ -646,9 +787,9 @@ def build_about():
 <h2 class="section-title">skills</h2>
 {skills_html()}
 
-<h2 class="section-title">around madison</h2>
-<p class="post-description">A few photos from my first year here.</p>
-<div class="gallery">{gallery}</div>
+<h2 class="section-title">My Life Graph</h2>
+<p class="post-description">Tap a point or use the arrows.</p>
+{journey_html()}
 """
     write("index.html", page("about", "about", p, body, head_extra=person_schema()))
 

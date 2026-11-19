@@ -1,4 +1,4 @@
-// Theme toggle, mobile nav, abstract/bibtex toggles, and the image viewer.
+// Theme toggle, mobile nav, abstract/bibtex toggles, life graph, and the image viewer.
 (function () {
   var root = document.documentElement;
 
@@ -45,6 +45,54 @@
         }
         target.classList.toggle("open");
       });
+    });
+
+    // Life graph on the about page.
+    document.querySelectorAll(".journey").forEach(function (box) {
+      var data = JSON.parse(box.querySelector(".jg-data").textContent);
+      var pts = box.querySelectorAll(".jg-pt");
+      var card = box.querySelector(".jg-card");
+      var el = function (c) { return card.querySelector(c); };
+      var cur = parseInt(box.getAttribute("data-start"), 10) || 0;
+      function show(i) {
+        cur = (i + data.length) % data.length;
+        var d = data[cur];
+        el(".jg-date").textContent = d.date + (d.place && d.place !== "?" ? " · " + d.place : "");
+        el(".jg-kind").textContent = d.kind;
+        el(".jg-title").textContent = d.title;
+        el(".jg-text").textContent = d.text;
+        el(".jg-count").textContent = (cur + 1) + " / " + data.length;
+        card.classList.toggle("twist", d.kind === "plot twist");
+        card.classList.toggle("turn", d.kind === "turning point");
+        pts.forEach(function (p, k) { p.classList.toggle("active", k === cur); });
+      }
+      pts.forEach(function (p, k) {
+        p.addEventListener("click", function () { show(k); });
+        p.addEventListener("mouseenter", function () { if (window.matchMedia("(hover: hover)").matches) show(k); });
+      });
+      el(".jg-prev").addEventListener("click", function () { show(cur - 1); });
+      el(".jg-next-btn").addEventListener("click", function () { show(cur + 1); });
+      box.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowLeft") { show(cur - 1); e.preventDefault(); }
+        if (e.key === "ArrowRight") { show(cur + 1); e.preventDefault(); }
+      });
+      show(cur);
+
+      // Draw the curve once it scrolls into view.
+      var line = box.querySelector(".jg-line");
+      var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (line && line.getTotalLength && !still && "IntersectionObserver" in window) {
+        var len = line.getTotalLength();
+        line.style.strokeDasharray = len;
+        line.style.strokeDashoffset = len;
+        var io = new IntersectionObserver(function (entries) {
+          if (!entries[0].isIntersecting) return;
+          line.style.transition = "stroke-dashoffset 1.6s ease-out";
+          line.style.strokeDashoffset = 0;
+          io.disconnect();
+        }, { threshold: 0.35 });
+        io.observe(box);
+      }
     });
 
     // Click a figure, poster, or photo to see it full size.
