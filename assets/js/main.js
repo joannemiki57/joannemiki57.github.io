@@ -62,7 +62,12 @@
         el(".jg-title").textContent = d.title;
         el(".jg-text").textContent = d.text;
         var a = el(".jg-link");
-        if (d.link) { a.href = d.link; a.querySelector("span").textContent = d.linkLabel; a.hidden = false; }
+        if (d.link) {
+          a.href = d.link;
+          a.querySelector("span").textContent = d.linkLabel;
+          a.querySelector("i").className = d.link.indexOf("linkedin.com") > -1 ? "fa-brands fa-linkedin" : "fa-brands fa-youtube";
+          a.hidden = false;
+        }
         else { a.hidden = true; a.removeAttribute("href"); }
         el(".jg-count").textContent = (cur + 1) + " / " + data.length;
         card.classList.toggle("twist", d.kind === "plot twist");
