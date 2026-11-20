@@ -539,7 +539,7 @@ CV_SECTIONS = [
         ("Multimodal data analysis, machine learning, in-situ process monitoring, federated learning", "", "", []),
     ]),
     ("Education", [
-        ("University of Wisconsin–Madison", "Sep 2026 – May 2027 (expected)", "M.S., Industrial &amp; Systems Engineering · Advisor: Prof. Hantang Qin · GPA 3.9/4.0 · Visiting International Student, Industrial &amp; Systems Engineering, Sep 2025 – May 2026", []),
+        ("University of Wisconsin–Madison", "Sep 2026 – May 2027 (expected)", "M.S., Industrial &amp; Systems Engineering · Advisor: Prof. Hantang Qin · GPA 3.91/4.0 · Visiting International Student, Industrial &amp; Systems Engineering, Sep 2025 – May 2026", []),
         ("Ajou University, Suwon, South Korea", "Mar 2023 – Aug 2026", "B.S., Industrial Engineering · Advisor: Prof. Jooyeon Lee · GPA 4.26/4.5 · Class rank 1/139", []),
     ]),
     ("Publications", [
