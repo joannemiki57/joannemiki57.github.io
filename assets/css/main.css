@@ -412,11 +412,10 @@ a.vcard:hover { text-decoration: none; color: var(--text); transform: translateY
 .fig-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 @media (max-width: 640px) { .fig-row { grid-template-columns: 1fr; } }
 .callout {
-  border-left: 3px solid var(--theme);
   background: var(--bg-soft);
   padding: 12px 16px;
   margin: 18px 0;
-  border-radius: 0 4px 4px 0;
+  border-radius: 8px;
 }
 .content ul { padding-left: 1.3rem; }
 .content li { margin-bottom: 6px; }
@@ -561,14 +560,22 @@ footer a { color: #ff8a8e; }
   margin-top: 10px;
   padding: 14px 18px 12px;
   background: var(--bg-soft);
-  border-left: 3px solid var(--theme);
-  border-radius: 0 6px 6px 0;
+  border-radius: 8px;
   min-height: 112px;
 }
-.jg-card.twist { border-left-color: var(--twist); }
 .jg-meta { display: flex; gap: 10px; align-items: baseline; font-size: 0.85rem; color: var(--text-muted); }
-.jg-kind { text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.72rem; font-weight: 500; color: var(--theme); }
-.jg-card.twist .jg-kind { color: var(--twist); }
+.jg-kind {
+  display: inline-block;
+  padding: 1px 9px;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.jg-kind::first-letter { text-transform: uppercase; }
+.jg-card.twist .jg-kind { background: var(--twist); color: var(--bg); }
 .jg-title { margin: 4px 0 4px; font-size: 1.1rem; font-weight: 500; }
 .jg-text { margin: 0 0 8px; }
 .jg-nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
@@ -594,7 +601,6 @@ footer a { color: #ff8a8e; }
 .jg-split { stroke: var(--divider); stroke-width: 1.2; stroke-dasharray: 3 4; }
 .jg-era { fill: var(--text-muted); font-size: 12px; font-style: italic; font-family: inherit; }
 .jg-key i.jg-k-u { background: var(--theme); }
-.jg-card.turn { border-left-width: 5px; }
 @media (max-width: 540px) { .jg-era { font-size: 18px; } }
 @media (max-width: 540px) { .jg-minor { display: none; } }
 .jg-text:empty { display: none; }
